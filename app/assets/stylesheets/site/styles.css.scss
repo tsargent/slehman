@@ -170,7 +170,7 @@ textarea {
     margin:  30px -5px 40px;
     background: white;
     padding: 15px;
-    @include box-shadow(rgba(0, 0, 0, 0.1) 0px 0px 1px 1px);
+    @include box-shadow(rgba(0, 0, 0, 0.1) 0.5px 1px 1px 0px);
     
     height: 100px;
 }
@@ -338,12 +338,14 @@ h1, h2, h3, h4, h5 {
     border-top: 1px solid #eee;
     
     a {
+        @include box-shadow(rgba(0, 0, 0, 0.1) 0.5px 1px 1px 0px);
         text-decoration: none;
         padding: 20px;
         display: block;
-        background: #fff;
+        background: white;
         height: 40px;
         &:hover {
+            @include box-shadow(rgba(0, 0, 0, 0.1) 0.5px 1px 1px 1px);
         }
 
     }
