@@ -1,0 +1,41 @@
+<%= simple_form_for [:admin, @event], :html => { :class => 'form-vertical' } do |f| %>
+
+	<div class="row">
+		<div class="span4">
+			<fieldset id="general_info">
+				<legend>General Info</legend>
+				
+				<%= f.input :title, placeholder: 'Enter Event Title', label: false %>
+				<%= f.input :url, placeholder: 'Enter Ticket URL', label: false %>
+				<%= f.input :body,  placeholder: 'Enter Event Body Text (eg: "Steve Lehman, Alto Saxophone; Matt Brewer, Bass; Damion Reid, Drum Set")',  label: false, input_html: { rows: 10} %>
+				
+			</fieldset>
+			
+		</div>
+		
+		<div class="span4">
+			<fieldset>
+				<legend>Date &amp; Time</legend>
+				<%= f.input :date  %>
+				<%= f.input :time_string, placeholder: '"8PM", "8PM & 10:30PM"', label: false  %>
+			</fieldset>
+		</div>
+		
+		<div class="span4">
+			<fieldset>
+				<legend>Location</legend>
+				<%= f.input :venue, placeholder: 'Enter Venue Name', label: false %>
+				<%= f.input :location, placeholder: '"New York, NY" or "Koln, Germany"', label: false, input_html: { rows: 10 } %>
+				<%= f.input :address, placeholder: 'Enter Street Address', label: false, input_html: { rows: 4 } %>
+			</fieldset>
+		</div>
+	</div>
+
+	<div class="form-actions">
+		<%= f.button :submit, nil, class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', admin_events_path, :class => 'btn' %>
+	</div>
+<% end %>
+<script type="text/javascript">
+  $('.datepicker').datepicker()
+</script>

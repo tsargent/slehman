@@ -1,0 +1,46 @@
+<h1>Tracks</h1>
+
+<%= form_for [:admin, @track], :html => { :class => 'form-vertical' } do |f| %>
+	<%= file_field_tag :audio, multiple: true, name: 'track[audio]' %>
+	<div id="tracks"></div>
+<% end %>
+
+
+<table class="table table-striped">
+	<thead>
+	  <tr>
+	    <th>ID</th>
+	    <th>File</th>
+	    <th>Title</th>
+	    <th>Created</th>
+	    <th>Updated</th>
+	    <th>Actions</th>
+	  </tr>
+		
+	</thead>
+	<tbody>
+		<% @tracks.each do |track| %>
+		  <tr>
+		    <td><%= track.id %></td>
+		    <td><%= link_to track.audio_url %></audio></td>
+		    <td><%= track.title %></td>
+		    <td><%= track.created_at %></td>
+		    <td><%= track.updated_at %></td>
+
+		    <td>
+				<%= link_to 'Edit', edit_admin_track_path(track), class: 'btn btn-mini' %>
+				<%= link_to 'Delete', [:admin, track], method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-mini btn-danger' %>
+			</td>
+		  </tr>
+		<% end %>
+		
+	</tbody>
+
+</table>
+
+<script id="template-upload" type="text/x-tmpl">
+	<div class="upload">
+		{%=o.name%}
+		<div class="progress"><div class="bar" style="width: 0%;"></div></div>
+	</div>
+</script>

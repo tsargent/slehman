@@ -1,0 +1,24 @@
+<h1>Pages</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Created</th>
+    <th>Updated</th>
+    <th>Actions</th>
+  </tr>
+
+<% @pages.each do |page| %>
+  <tr>
+    <td><%= link_to page.name, admin_page_path(page) %></td>
+    <td><%= page.created_at %></td>
+    <td><%= page.updated_at %></td>
+
+    <td>
+		<%= link_to 'Show', [:admin, page], class: 'btn btn-mini' %>
+		<%= link_to 'Edit', edit_admin_page_path(page), class: 'btn btn-mini' %>
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New Post', new_admin_page_path, class: 'btn btn-primary' %>

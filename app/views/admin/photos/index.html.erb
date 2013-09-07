@@ -1,0 +1,40 @@
+<h1>Photos</h1>
+<%= form_for [:admin, @photo], :html => { :class => 'form-vertical' } do |f| %>
+	<%= file_field_tag :image, multiple: true, name: 'photo[image]' %>
+	<div id="photos"></div>
+<% end %>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Image</th>
+			<th>Title</th>
+			<th>Caption</th>
+			<th>Created</th>
+			<th>Updated</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @photos.each do |photo| %>
+		  <tr>
+		    <td><%= photo.id %></td>
+		    <td><a href="<%= admin_photo_path(photo) %>"><%= image_tag photo.image_url(:thumb) %></a></td>
+		    <td><%= photo.title %></td>
+		    <td><%= photo.caption %></td>
+		    <td><%= photo.created_at %></td>
+		    <td><%= photo.updated_at %></td>
+		    <td>
+				<%= link_to 'Show', [:admin, photo], class: 'btn btn-mini' %>
+				<%= link_to 'Delete', [:admin, photo], method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-mini btn-danger' %>
+			</td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+<script id="template-upload" type="text/x-tmpl">
+	<div class="upload">
+		{%=o.name%}
+		<div class="progress"><div class="bar" style="width: 0%;"></div></div>
+	</div>
+</script>

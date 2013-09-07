@@ -1,0 +1,45 @@
+<h1>Events</h1>
+<p><%= link_to 'New Event', new_admin_event_path, class: 'btn btn-primary' %></p>
+
+<table class="table table-striped">
+	<thead>
+	  <tr>
+	    <th>ID</th>
+	    <th>Date</th>
+	    <th>Time</th>
+	    <th>Time String</th>
+	    <th>Title</th>
+	    <th>Ticket URL</th>
+	    <th>Address</th>
+	    <th>Created</th>
+	    <th>Updated</th>
+	    <th>Actions</th>
+	  </tr>
+		
+	</thead>
+	<tbody>
+		<% @events.each do |event| %>
+		  <tr>
+		    <td><%= event.id %></td>
+		    <td><%= format_date event.date %></td>
+		    <td><%= format_time event.time %></td>
+		    <td><%= event.time_string  %></td>
+		    <td><%= event.title %></td>
+		    <td><%= link_to event.url %></td>
+		    <td><%= event.address %></td>
+		    <td><%= event.created_at %></td>
+		    <td><%= event.updated_at %></td>
+		    <td>
+				<%= link_to 'Show', event, class: 'btn btn-mini'  %>
+				<%= link_to 'Edit', edit_admin_event_path(event), class: 'btn btn-mini' %>
+				<%= link_to 'Destroy', [:admin,event], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger'  %>
+			</td>
+		  </tr>
+		<% end %>
+		
+	</tbody>
+
+</table>
+
+
+<%= link_to 'New Event', new_admin_event_path, class: 'btn btn-primary' %>

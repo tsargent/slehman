@@ -1,0 +1,13 @@
+<%= simple_form_for [:admin, @quote], :html => { :class => 'form-vertical' } do |f| %>
+	<%= f.input :source, placeholder: 'Enter Source Name', label: false %>
+	<%= f.input :body,  placeholder: 'Enter Review Body',  label: false, input_html: { class: 'span4', rows: 10} %>
+	<%= f.input :url,  placeholder: 'http://nytimes.com...',  label: false, input_html: {class: 'span4'}  %>
+	<%= f.input :url_text,  placeholder: 'New York Times Review of Dialect Fluorescent',  label: false, novalidate: true, input_html: {class: 'span4'} %>
+	<%= f.input :display, label: false, inline_label: 'Display Review?' %>
+	<%= f.input :featured, label: false, inline_label: 'Featured Review?' %>
+	<div class="form-actions">
+		<%= f.button :submit, nil, class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', admin_quotes_path, :class => 'btn' %>
+	</div>
+<% end %>
+

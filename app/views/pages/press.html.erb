@@ -1,0 +1,40 @@
+<section id="main">
+
+		<% @quotes_featured.each do |quote| %>
+
+			<article class="post press">
+
+				<%= image_tag quote.photo.image_url if quote.photo %>
+				<div class="text">
+					<h4 class="lead">&ldquo;<%= quote.body %>&rdquo;<span class="header-hrule"></span></h4>
+					<p><%= quote.source %></p>
+					<% if quote.url? %>
+						<!-- <%= link_to 'Read', quote.url, target: '_blank', class: 'more read-more press' %> -->
+					<% end %>
+				</div>
+
+			</article>
+
+		<% end %>
+		
+		
+		
+		<% if @quotes_archived.count > 0 %>
+		<section id="press_archived">
+			<h4>More press:</h4>
+			<% @quotes_archived.each do |quote| %>
+
+				<article class="post press archived">
+
+					<div class="text">
+						<%= link_to quote.url_text, quote.url, target: '_blank'%>
+					</div>
+
+				</article>
+
+			<% end %>
+		</section>
+		<% end %>
+
+
+</section>

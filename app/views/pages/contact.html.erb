@@ -1,0 +1,49 @@
+
+<section id="main">
+	<div class="row">
+
+		<div class="span4">
+			
+			<h3>European Booking Inquiries</h3>
+			<p class="lead">Ralph Gluch<br />
+			Jazz Productions<br />
+			<a href="http://www.gluch.ch" target="_blank">www.gluch.ch</a><br />
+			<a href="mailto:ralph@gluch.ch">ralph@gluch.ch</a><br />
+			Tel: +41 33-223-2601
+			</p>
+			
+			<hr>
+			<h3>Score Requests</h3>
+			<p class="lead">A selection of Steve Lehman's scores are available for purchase through <a style="white-space:nowrap" href="http://www.pirecordings.com/scores/" target="_blank">Pi Recordings</a>.</p>
+			
+			
+		</div>
+		
+		<div class="span4">
+
+			<h3>Send a Message</h3>
+			<form id="message_form" class="" action="/emails/message" method="post">
+
+				<fieldset>
+					<input name="email" id="message-email-address" type="text" placeholder="Email Address">
+					<textarea name="message" rows="8" cols="40" class="span4" placeholder="Send a message."></textarea>
+					<button type="submit" class="">Send</button>
+					<div class="instructions">
+						<p>Please enter your email address and an accompanying message if you wish to contact Steve Lehman directly regarding U.S. performances, private lessons, and all other inquiries not related to European bookings and score purchases.</p>
+						<p>If you wish to join Steve's mailing list, enter your email address in the text field to the right and click the &ldquo;submit&rdquo; button.</p>
+					</div>
+				</fieldset>
+				
+				<% flash.each do |name, msg| -%>
+				      <%= content_tag :div, msg, class: name %>
+				<% end -%>
+
+			</form>
+
+		</div>
+		
+
+	</div>
+
+</section>
+

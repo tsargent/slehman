@@ -1,0 +1,56 @@
+<h1>Albums</h1>
+
+<table class="table table-striped sortable">
+	<thead>
+	  <tr>
+	    <th>Sort</th>
+	    <th>ID</th>
+	    <th>Photo</th>
+	    <th>Title</th>
+	    <th>Project</th>
+	    <th>Year</th>
+	    <th>Tracks</th>
+	    <th>Created</th>
+	    <th>Updated</th>
+	    <th>Actions</th>
+	  </tr>
+	</thead>
+	<tbody data-update-url="<%= sort_admin_albums_url %>">
+		<% @albums.each do |album| %>
+		<%= content_tag_for :tr, album do %>
+		
+			<td class="sort"><i class="icon-resize-vertical"></i></td>
+			<td><%= album.id %></td>
+		    <td>
+				<% if album.photo %>
+					<%= image_tag album.photo.image_url(:thumb) %>
+				<% end %>
+
+			</td>
+		    <td><%= album.title %></td>
+		    <td><%= album.project %></td>
+		    <td><%= album.year %></td>
+		    <td>
+
+				<% album.tracks.each do |track| %>
+					<div><%= link_to track.title, track.audio_url %></div>
+				<% end %>
+			</td>
+		    <td><%= album.created_at %></td>
+		    <td><%= album.updated_at %></td>
+
+		    <td>
+				<%= link_to 'Show', [:admin, album], class: 'btn btn-mini' %>
+				<%= link_to 'Edit', edit_admin_album_path(album), class: 'btn btn-mini' %>
+				<%= link_to 'Destroy', [:admin, album], method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-mini btn-danger' %>
+			</td>
+
+		<% end %>
+		<% end %>
+		
+	</tbody>
+
+</table>
+
+
+<%= link_to 'New Album', new_admin_album_path, class: 'btn btn-primary' %>

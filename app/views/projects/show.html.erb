@@ -1,0 +1,23 @@
+<section id="main">
+	<article id="project">
+		<header>
+			<div class="row">
+				<div class="span5">
+					<h2 class="page_header"><%= @project.name %></h2>
+				</div>
+				<div class="span2">
+					<p><%= link_to "View All Projects", projects_path, class: 'view_all' %></p>
+				</div>
+			</div>
+		</header>
+		<div class="row">
+			<div class="span2">
+				<img src="http://placehold.it/200x200" />
+			</div>
+			<div class="span5">
+				<%= simple_format(@project.description) %>
+				
+			</div>
+		</div>
+	</article>
+</section>

@@ -1,0 +1,256 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# 23712824
+
+
+# POSTS
+#----------------------------------------------
+Post.destroy_all
+Post.create({
+  title: 'This is the first post',
+  body: Faker::Lorem.paragraphs(3..4).join("\n\n"),
+  excerpt: Faker::Lorem.paragraphs(1).join("\n\n"),
+  published: true
+})
+Post.create({
+  title: 'This is the second post',
+  body: Faker::Lorem.paragraphs(3..4).join("\n\n"),
+  excerpt: Faker::Lorem.paragraphs(1).join("\n\n"),
+  published: true
+})
+Post.create({
+  title: 'This is the third post',
+  body: Faker::Lorem.paragraphs(3..4).join("\n\n"),
+  excerpt: Faker::Lorem.paragraphs(1).join("\n\n"),
+  published: true
+})
+
+
+
+# PHOTOS
+#----------------------------------------------
+Photo.destroy_all
+
+
+Photo.create({
+  image: File.new('lib/dummy_files/images/synths.jpg'),
+  caption: 'synths caption'
+})
+Photo.create({
+  image: File.new('lib/dummy_files/images/steve_jonathan.jpg'),
+  caption: 'Steve and Jonathan caption'
+})
+Photo.create({
+  image: File.new('lib/dummy_files/images/steve.jpg'),
+  caption: 'Steve caption'
+})
+Photo.create({
+  image: File.new('lib/images/press_ny_times.png'),
+  caption: 'NY Times'
+})
+Photo.create({
+  image: File.new('lib/images/press_the_guardian.jpg'),
+  caption: 'Guardian'
+})
+
+
+Photo.create({
+  image: File.new('lib/images/project_trio.jpg'),
+  caption: 'Trio'
+})
+Photo.create({
+  image: File.new('lib/images/project_fieldwork.jpg'),
+  caption: 'Fieldwork'
+})
+Photo.create({
+  image: File.new('lib/images/project_octet.jpg'),
+  caption: 'Octet'
+})
+Photo.create({
+  image: File.new('lib/images/album_dialectic_flourescent.jpg'),
+  caption: 'Dialectic Flourescent'
+})
+Photo.create({
+  image: File.new('lib/images/album_travail.jpg'),
+  caption: 'Travail'
+})
+
+
+Track.destroy_all
+
+Track.create({
+  audio: File.new('lib/audio/Allocentric.mp3'),
+  title: 'Allocentric'
+})
+
+Track.create({
+  audio: File.new('lib/audio/MomentsNotice.mp3'),
+  title: 'Moments Notice'
+})
+
+Track.create({
+  audio: File.new('lib/audio/Echoes.mp3'),
+  title: 'Echoes'
+})
+
+Track.create({
+  audio: File.new('lib/audio/MrE.mp3'),
+  title: 'Mr. E'
+})
+
+
+
+
+Album.destroy_all
+
+Album.create({
+  title: 'Dialectic Flourescent'
+}).tracks << [
+  Track.find_by_title('Allocentric'), 
+  Track.find_by_title('Moments Notice'),
+  Track.find_by_title('Mr. E'),
+]
+
+Album.create({
+  title: 'Travail',
+  personnel: 'Steve Lehman, Alto Saxophone; Mark Shim, Tenor Saxophone; Jonathan Finlayson, Trumpet; Tim Albright, Trombone; Chris Dingman, Vibraphone; Jose Davila, Tuba; Drew Gress, Bass; Tyshawn Sorey, Drum Set'
+}).tracks << [Track.find_by_title('Echoes')]
+
+
+Album.find_by_title('Dialectic Flourescent').photo = Photo.find_by_image('album_dialectic_flourescent.jpg')
+Album.find_by_title('Travail').photo = Photo.find_by_image('album_travail.jpg')
+
+# VIDEOS
+#----------------------------------------------
+Video.destroy_all
+Video.create({ 
+  embed: '<iframe width="420" height="315" src="http://www.youtube.com/embed/o__xVnqhkT0" frameborder="0" allowfullscreen></iframe>'
+})
+Video.create({
+  embed: '<iframe src="http://player.vimeo.com/video/32879997?title=0&amp;byline=0&amp;portrait=0&amp;color=00ffff" width="960" height="540" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+})
+
+
+# PROJECTS
+#----------------------------------------------
+Project.destroy_all
+
+Project.create({
+  name: 'Steve Lehman Trio',
+  description: Faker::Lorem.paragraphs(2..3).join("\n\n"),
+  photo: Photo.find_by_image('project_trio.jpg')
+})
+Project.create({
+  name: 'Fieldwork',
+  description: Faker::Lorem.paragraphs(2..3).join("\n\n"),
+  photo: Photo.find_by_image('project_fieldwork.jpg')
+})
+Project.create({
+  name: 'Steve Lehman Octet',
+  description: Faker::Lorem.paragraphs(2..3).join("\n\n"),
+  photo: Photo.find_by_image('project_octet.jpg')
+})
+Project.create({
+  name: 'Lorem',
+  description: Faker::Lorem.paragraphs(2..3).join("\n\n")
+})
+
+
+Event.destroy_all
+10.times do |index|
+  Event.create({
+    title: Faker::Lorem.sentence,
+    date: Date.today + index.days,
+    time: Time.now + (index * 60),
+    url: Faker::Internet.domain_name(),
+    location: "#{Faker::Address.city()}, #{Faker::Address.state()}"
+   })
+end
+
+Quote.destroy_all
+Quote.create({
+  source: 'NY Times',
+  body: 'Superb...immediately gripping...perfectly ultramodern.',
+  display: true,
+  position: 0,
+  url: 'http://www.nytimes.com/2011/04/21/arts/music/steve-lehman-saxophonist-at-le-poisson-rouge-review.html?_r=0'
+})
+Quote.create({
+  source: 'All Music Guide',
+  body: 'This music is astonishing.',
+  display: true,
+  position: 1
+})
+Quote.create({
+  source: 'Penguin Guide to Jazz',
+  body: 'Music of genuinely visionary importance, a way forward for the art.',
+  display: true,
+  position: 2
+})
+Quote.create({
+  source: 'The Guardian (UK)',
+  body: 'One of the transforming figures of early 21st-century jazz.',
+  display: true,
+  position: 3
+})
+Quote.create({
+  source: 'BBC Radio (UK)',
+  body: 'A major new voice in jazz',
+  display: true,
+  position: 4
+})
+Quote.create({
+  source: 'NY Times',
+  body: 'A quietly dazzling saxophonist.',
+  display: true,
+  position: 5
+})
+
+
+
+
+Article.destroy_all
+Article.create({
+  title: 'Liminality as a Framework for Composition: Rhythmic Thresholds, Spectral Harmonies and Afrological Improvisation',
+  description: 'Dissertation submitted in partial fulfillment of the requirements for the degree of Doctoral of Musical Arts at Columbia University.',
+  display: true,
+  document: File.open("lib/dummy_files/documents/demo.pdf"),
+  position: 0
+})
+Article.create({
+  title: 'I Love You With an Asterisk: African-American Experimental Composers and the French Jazz Press, 1970-1980',
+  description: 'Published in the journal Critical Studies in Improvisation Vol. 1, No. 2 (2005)',
+  display: true,
+  external_url: 'http://google.com',
+  position: 1
+})
+
+
+Article.create({
+  title: 'McLean\'s Scene: Jackie McLean as Improviser, Educator and Activist',
+  description: 'Published in the journal Critical Studies in Improvisation Vol. 3, No. 2 (2008)',
+  display: true,
+  position: 2
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

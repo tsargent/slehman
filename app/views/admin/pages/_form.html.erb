@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, @page], :html => { :class => 'form-vertical' } do |f| %>
+	<%= f.input :content,  placeholder: 'Enter Content',  label: false, input_html: { rows: 10, class: 'input-xxlarge' } %>
+
+	<div class="form-actions">
+		<%= f.button :submit, nil, class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', admin_pages_path, :class => 'btn' %>
+	</div>
+<% end %>

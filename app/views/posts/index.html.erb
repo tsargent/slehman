@@ -1,0 +1,25 @@
+<section id="main">
+	<%= paginate @posts %>
+	<% @posts.each do |post| %>
+	<article class="post">
+		<div class="row">
+			<div class="span3">
+				<% if post.photo %>
+					<%= link_to (image_tag post.photo.image_url(:medium)), post_path(post)%>
+				<% end %>
+			</div>
+			
+			<div class="span6">
+				<header>
+					<h5><span class="date"><%= format_date(post.created_at) %></span></h5>
+					<h3 class="heading"><%= link_to post.title, post_path(post) %></a><span class="header-hrule"></span></h3>
+				</header>
+				<%= simple_format(post.excerpt, class: 'lead')  %>
+				<%= link_to 'Read more', post_path(post) %>
+				
+			</div>
+		</div>
+	</article>
+	<% end %>
+	<%= paginate @posts %>
+</section>

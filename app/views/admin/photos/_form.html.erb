@@ -1,0 +1,17 @@
+<%= form_for [:admin, @photo], :html => { :class => 'form-vertical' } do |f| %>
+	<%= file_field_tag :image, multiple: true, name: 'photo[image]' %>
+	
+	<div class="form-actions">
+		<button class="btn" type="submit">Submit</button>
+		<%= link_to 'Cancel', admin_photos_path, :class => 'btn' %>
+	</div>
+
+<% end %>
+
+<script id="template-upload" type="text/x-tmpl">
+	<div class="upload">
+		{%=o.name%}
+		<div class="progress"><div class="bar" style="width: 0%;"></div></div>
+	</div>
+</script>
+

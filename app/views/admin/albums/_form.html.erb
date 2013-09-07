@@ -1,0 +1,45 @@
+<%= simple_nested_form_for [:admin, @album], :html => { :class => 'form-vertical' } do |f| %>
+	<%= f.input :title,  placeholder: 'Enter title' %>
+	<%= f.input :project,  placeholder: 'Enter project' %>
+	<%= f.input :year,  placeholder: 'Enter year' %>
+
+	<fieldset id="primary_link" class="">
+		<legend>Primary Link</legend>
+		<%= f.input :cta_url,  placeholder: 'Enter URL' %>
+		<%= f.input :cta_text,  placeholder: 'Enter URL text' %>
+	</fieldset>
+
+	<%= f.input :personnel,  placeholder: 'Enter personnel', input_html: { rows: 6, class: 'input-xxlarge' }  %>
+	
+	<fieldset>
+		<legend>Cover Image</legend>
+		<%= select_tag(:photo_id, options_for_select(Photo.all.map { |photo| [photo.image_url, photo.id] }, selected: (@album.photo.id if @album.photo)), prompt: 'No Photo') %>
+	</fieldset>
+
+	<fieldset>
+		<legend>Tracks</legend>
+		<%= select_tag(:tracks, options_for_select(Track.all.map { |track| [track.audio_url, track.id] }, @album.tracks.map {|t| t.id }), multiple: true, class: 'input-xxlarge') %>
+	</fieldset>
+
+	
+	<fieldset id="links" class="">
+		<legend>Links</legend>
+		
+		<%= f.fields_for :links do |link_form| %>
+		  <%= link_form.text_field :service %>
+		  <%= link_form.text_field :url %>
+		  <%= link_form.link_to_remove "Remove this link" %>
+		<% end %>
+
+		<p><%= f.link_to_add "Add a link", :links %></p>
+		
+	</fieldset>
+
+	
+	
+	
+	<div class="form-actions">
+		<%= f.button :submit, nil, class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', admin_albums_path, :class => 'btn' %>
+	</div>
+<% end %>

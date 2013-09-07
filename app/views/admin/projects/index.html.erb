@@ -1,0 +1,44 @@
+<h1>Projects</h1>
+<p>
+<%= link_to 'New Project', new_admin_project_path, class: 'btn btn-primary' %>
+</p>
+<table class="table table-striped sortable">
+	<thead>
+	  <tr>
+	    <th>Sort</th>
+	    <th>ID</th>
+	    <th>Image</th>
+	    <th>Name</th>
+	    <th>Description</th>
+	    <th>Created</th>
+	    <th>Updated</th>
+	    <th>Actions</th>
+	  </tr>
+		
+	</thead>
+	<tbody data-update-url="<%= sort_admin_projects_url %>">
+		<% @projects.each do |project| %>
+			<%= content_tag_for :tr, project do %>
+				<td class="sort"><i class="icon-resize-vertical"></i></td>
+				<td><%= project.id %></td>
+			    <td><%= image_tag(project.photo.image_url(:thumb)) if project.photo %></td>
+			    <td><%= project.name %></td>
+			    <td><%= project.description %></td>
+			    <td><%= project.created_at %></td>
+			    <td><%= project.updated_at %></td>
+
+			    <td>
+					<%= link_to 'Show', [:admin, project], class: 'btn btn-mini' %>
+					<%= link_to 'Edit', edit_admin_project_path(project), class: 'btn btn-mini' %>
+					<%= link_to 'Delete', [:admin, project], method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-mini btn-danger' %>
+				</td>
+
+			<% end %>
+
+		<% end %>
+		
+	</tbody>
+
+</table>
+
+<%= link_to 'New Project', new_admin_project_path, class: 'btn btn-primary' %>

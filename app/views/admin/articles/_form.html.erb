@@ -1,0 +1,23 @@
+<%= simple_form_for [:admin, @article], :html => { :class => 'form-vertical' } do |f| %>
+
+	<%= f.input :display, label: false, inline_label: 'Display' %>
+	<%= f.input :title, placeholder: 'Enter Title', input_html: { class: 'input-xxlarge'} %>
+	<%= f.input :description,  placeholder: 'Enter Description', input_html: { rows: 4, class: 'input-xxlarge'} %>
+
+
+	<fieldset>
+		<legend>Article Link</legend>
+		<span class="help-block">Use either either a URL or a document, not both.</span>
+		<%= f.input :external_url, label: false, placeholder: 'http://example.com' %>
+		<%= select_tag(:document_id, options_for_select(Document.all.map { |document| [document.pdf_url, document.id] }, selected: (@article.document.id if @article.document)), prompt: 'No Document') %>
+	</fieldset>
+
+
+
+
+	<div class="form-actions">
+		<%= f.button :submit, nil, class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', admin_articles_path, :class => 'btn' %>
+	</div>
+
+<% end %>

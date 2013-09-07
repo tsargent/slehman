@@ -1,0 +1,30 @@
+<section id="main">
+	<div class="row">
+		
+	<% @videos.each do |video| %>
+	<div class="post video">
+		<div class="span3">
+			<div class="video_wrapper">
+				<%= raw video.embed %>
+			</div>
+		</div>
+			
+			
+		<!-- 
+		<span class="console">
+			<textarea class="output" rows="8" cols="40"></textarea>
+		</span>
+		<div class="buttons">
+			<button class="play">play</button>
+			<button class="pause">pause</button>
+			<button class="unload">unload</button>
+		</div>
+		-->
+		
+	</article>
+	<% end %>	
+	</div>
+		
+</section>
+
+

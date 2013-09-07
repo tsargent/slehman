@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @post.body %>
+</p>
+
+<p>
+  <b>Published:</b>
+  <%= @post.published %>
+</p>
+
+
+<p>
+	<b>Photo:</b><br/>
+	<%= image_tag @post.photo.image_url(:medium) if @post.photo %><br>
+</p>
+
+
+
+
+
+<%= link_to 'Edit', edit_admin_post_path(@post) %> |
+<%= link_to 'Back', admin_posts_path %>

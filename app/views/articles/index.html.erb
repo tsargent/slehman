@@ -1,0 +1,20 @@
+<section id="main">
+	<% @articles.each do |article| %>
+		<article class="post article">
+			
+			<div class="text">
+				<h4 class="lead"><%= article.title %><span class="header-hrule"></span></h4>
+				<%= simple_format article.description %>
+				<% if article.has_cta? %>
+					<%= link_to 'read', article.cta, target: '_blank', class: 'more read-more'  %>
+				<% end %>
+				
+				
+			</div>
+			
+			
+					
+		</article>
+	<% end %>
+</section>
+

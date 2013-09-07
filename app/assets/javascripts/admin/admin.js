@@ -1,0 +1,14 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery.ui.sortable
+//= require bootstrap
+//= require bootstrap-datepicker
+//= require audiojs/audio.min.js
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+//= require admin/global
+//= require admin/photos
+//= require admin/tracks
+//= require admin/projects
+//= require admin/documents
+//= require admin/nested_form

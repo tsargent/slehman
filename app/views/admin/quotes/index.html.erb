@@ -1,0 +1,41 @@
+<h1>Quotes</h1>
+
+<table class="table table-striped sortable">
+	<thead>
+		<tr>
+			<th>Sort</th>
+			<th>ID</th>
+			<th>Source</th>
+			<th>Body</th>
+			<th>Display?</th>
+			<th>Featured?</th>
+			<th>Created</th>
+			<th>Updated</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody data-update-url="<%= sort_admin_quotes_url %>">
+		<% @quotes.each do |quote| %>
+		<%= content_tag_for :tr, quote do %>
+			<td class="sort"><i class="icon-resize-vertical"></i></td>
+			<td><%= quote.id %></td>
+			<td><%= quote.source %></td>
+			<td><%= quote.body %></td>
+			<td><%= quote.display %></td>
+			<td><%= quote.featured %></td>
+			<td><%= quote.created_at %></td>
+			<td><%= quote.updated_at %></td>
+			<td>
+				<%= link_to 'Show', [:admin, quote], class: 'btn btn-mini'  %>
+				<%= link_to 'Edit', edit_admin_quote_path(quote), class: 'btn btn-mini' %>
+				<%= link_to 'Destroy', [:admin,quote], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger'  %>
+			</td>
+		<% end %>
+		<% end %>
+		
+	</tbody>
+
+</table>
+
+
+<%= link_to 'New Quote', new_admin_quote_path, class: 'btn btn-primary' %>

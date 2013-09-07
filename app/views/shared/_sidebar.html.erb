@@ -1,0 +1,66 @@
+<aside id="sidebar">
+	
+	<h4>Recent News</h4>
+		<% Post.recent.each do |post| %>
+			<div class="row">
+				<div class="span3">
+					<div class="sidebar-item clearfix">
+						
+						<div class="date">
+							<%= format_date_sidebar(post.created_at) %>
+						</div>
+						<div class="link">
+							<%= link_to post.title, post_path(post) %>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		<% end %>
+	<div class="hrule"></div>
+
+	<h4>Upcoming Events</h4>
+		<% Event.upcoming.each do |event| %>
+			<div class="row">
+				<div class="span3">
+					<div class="sidebar-item clearfix">
+						<div class="date"><%= format_date_sidebar(event.date) %></div>
+						<div class="link"><%= link_to "#{event.title} in #{event.location}", event_path(event) %></div>
+						
+					</div>
+				</div>
+			</div>
+		<% end %>
+
+	
+	<div id="sidebar_bottom">
+		<div id="email_container">
+			<h5>Mailing List</h5>
+			<form id="email_form" class="inline-form">
+				<input id="email_signup" type="text" name="email[address]" placeholder="Email Address">
+			    <button type="submit" class="">Submit</button>
+			</form>
+		</div>
+
+
+
+		<div id="social">
+			<ul class="unstyled social">
+				<li class="facebook"><a href="https://www.facebook.com/thestevelehman" target="_blank">Facebook</a></li>
+				<li class="twitter"><a href="https://twitter.com/thestevelehman" target="_blank">Twitter</a></li>
+				<li class="apple"><a href="https://itunes.apple.com/us/artist/steve-lehman/id27779960" target="_blank">iTunes</a></li>
+				<li class="spotify"><a href="https://play.spotify.com/artist/5Al3ktlrPkN2fhMRQzSYXP" target="_blank">Spotify</a></li>
+				<li class="rdio"><a href="http://www.rdio.com/artist/Steve_Lehman/" target="_blank">rdio</a></li>
+				<li class="vimeo"><a href="https://vimeo.com/channels/582160" target="_blank">Vimeo</a></li>
+				<li class="youtube"><a href="http://www.youtube.com/playlist?list=PLZ0xdRYIDh18qmpYLvorluY5mbIrlctr0" target="_blank">YouTube</a></li>
+				<!-- <li class="rss"><a href="#" target="_blank">rss</a></li> -->
+			</ul>
+		</div>
+		
+	</div>
+
+
+	
+	
+	
+</aside>

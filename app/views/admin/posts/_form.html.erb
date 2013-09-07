@@ -1,0 +1,18 @@
+<%= simple_form_for [:admin, @post], :html => { :class => 'form-vertical' } do |f| %>
+
+	<%= f.input :display, label: false, inline_label: 'Display' %>
+	<%= f.input :title, placeholder: 'Enter Post Title', input_html: { class: 'input-xxlarge'} %>
+	<%= f.input :excerpt,  placeholder: 'Enter Post Excerpt', input_html: { rows: 2, class: 'input-xxlarge'} %>
+	<%= f.input :body,  placeholder: 'Enter Post Body', input_html: { rows: 10, class: 'input-xxlarge'} %>
+
+
+	<fieldset>
+		<legend>Post Image</legend>
+		<%= select_tag(:photo_id, options_for_select(Photo.all.map { |photo| [photo.image_url, photo.id] }, selected: (@post.photo.id if @post.photo)), prompt: 'No Photo') %>
+	</fieldset>
+
+	<div class="form-actions">
+		<%= f.button :submit, nil, class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', admin_posts_path, :class => 'btn' %>
+	</div>
+<% end %>

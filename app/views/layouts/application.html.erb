@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Steve Lehman <%= @page_title %></title>
+	
+	<meta name="description" content="<%= og_description %>">
+	<meta property="og:site_name" content="Steve Lehman"/>
+	<meta property="og:image" content="<%= og_image %>"/>
+	<meta property="og:title" content="<%= og_title %>"/>
+	<meta property="og:url" content="<%= og_url %>"/>
+	<meta property="og:description" content="<%= og_description %>"/>
+
+	<%= stylesheet_link_tag    "site/styles.css", :media => "all" %>
+	<%= javascript_include_tag "site/application" %>
+
+<script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script type="text/javascript" src="//use.typekit.net/soi5ara.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript">var switchTo5x=false;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-2564ea1-e336-b4f2-8512-69d33bad49fe", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<div class="navbar navbar-fixed-top">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </a>
+					<div class="row">
+						<div class="span12">
+							<%= link_to 'Steve Lehman', root_path, class: 'brand' %>
+							<div class="nav-collapse collapse">
+								<ul class="nav">
+
+									<% if Page.find_by_name('bio') %>
+										<%= content_tag :li, class: active_path(bio_path) do -%>
+											<%= link_to "Bio", bio_path %>
+										<% end -%>
+									<% end %>
+
+									<%= content_tag :li, class: active_path(projects_path) do -%>
+										<%= link_to "Projects", projects_path %>
+									<% end -%>
+
+									<%= content_tag :li, class: active_path(events_path) do -%>
+										<%= link_to "Events", events_path %>
+									<% end -%>
+
+									<%= content_tag :li, class: active_path(posts_path) do -%>
+										<%= link_to "News", posts_path %>
+									<% end -%>
+
+									<%= content_tag :li, class: active_path(music_path) do -%>
+										<%= link_to "Music", music_path %>
+									<% end -%>
+
+
+									<!-- 
+									<%= content_tag :li, class: active_path(videos_path) do -%>
+										<%= link_to "Video", videos_path %>
+									<% end -%>
+									-->
+
+
+
+
+									<%= content_tag :li, class: active_path(press_path) do -%>
+										<%= link_to "Press", press_path %>
+									<% end -%>
+
+									<%= content_tag :li, class: active_path(articles_path) do -%>
+										<%= link_to "Scholarship", articles_path %>
+									<% end -%>
+
+
+									<%= content_tag :li, class: active_path(contact_path) do -%>
+										<%= link_to "Contact", contact_path %>
+									<% end -%>
+								</ul>
+								
+							</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+				<% if !current_page?(:controller => 'pages', :action => 'index') %>
+				<div class="container">
+					<div class="row">
+				
+						<div class="span9">
+							<%= yield %>
+						</div>
+						<div class="span3">
+							<%= render "shared/sidebar" %>
+						</div>
+					</div>
+				</div>
+					
+				<% else %>
+
+						<%= yield %>
+
+				<% end %>
+
+		<div id="footer_push"></div>
+
+
+
+	</div><!-- #wrapper -->
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<!-- 
+				<span class='st_facebook_custom' displayText='Facebook' st_title="<%= og_title %>" st_image="<%= og_image %>">Share on Facebook</span>
+				-->
+				
+				<div class="span3">&copy; Steve Lehman</div>
+				<div class="span3"></div>
+				<div class="span3"></div>
+				<div class="span3">
+
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		
+	</footer>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-43747494-1', 'stevelehman.com');
+	  ga('send', 'pageview');
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<h1>Posts</h1>
+<p>
+<%= link_to 'New Post', new_admin_post_path, class: 'btn btn-primary' %>
+</p>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Photo</th>
+			<th>Title</th>
+			<th>Excerpt</th>
+			<th>Display</th>
+			<th>Created</th>
+			<th>Updated</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @posts.each do |post| %>
+			<%= content_tag_for(:tr, post, class: active_class(post)) do |post| %>
+		    	<td><%= post.id %></td>
+		    	<td><%= image_tag post.photo.image_url(:thumb) if post.photo %></td>
+			    <td><%= post.title %></td>
+			    <td><span class="excerpt"><%= post.excerpt %></span></td>
+			    <td><%= post.display %></td>
+			    <td><%= post.created_at %></td>
+			    <td><%= post.updated_at %></td>
+
+			    <td>
+					<%= link_to 'Show', [:admin, post], class: 'btn btn-mini' %>
+					<%= link_to 'Edit', edit_admin_post_path(post), class: 'btn btn-mini' %>
+					<%= link_to 'Delete', [:admin, post], method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-mini btn-danger' %>
+				</td>
+			<% end %>
+		<% end %>
+		
+	</tbody>
+
+</table>
+
+<%= link_to 'New Post', new_admin_post_path, class: 'btn btn-primary' %>

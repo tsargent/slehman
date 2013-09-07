@@ -1,0 +1,39 @@
+
+
+<section id="main">
+	
+	<article class="post single-post event">
+
+			<div class="row">
+				<div class="span7">
+					<header>
+						<h3><%= format_date(@event.date)%> <span><%= @event.location %></span> <%= @event.venue %></h3>
+						<h2><%= @event.title %></h2>
+						<h4><%= @event.time_string %></h4>
+						<%= link_to('Tickets', @event.url, class: 'more event-more', target: '_blank') if @event.url?  %>
+					</header>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span6">
+					<%= simple_format @event.body, class: 'lead' %>
+					
+				</div>
+			</div>
+		
+
+		<nav class="prev-next">
+			<div class="row">
+				<div class="span4">
+					<%= raw prev_event %>
+				</div>
+				<div class="span4 offset1">
+					<%= raw next_event %>
+				</div>
+			</div>
+		</nav>
+
+	</article>
+
+</section>

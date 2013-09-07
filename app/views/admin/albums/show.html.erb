@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @album.title %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @album.project %>
+</p>
+
+
+<p>
+  <b>Year:</b>
+  <%= @album.year %>
+</p>
+
+<p>
+	<b>Photo:</b><br>
+	<%= @album.photo ? image_tag(@album.photo.image_url(:medium)) : 'No Photo' %>
+</p>
+<p>
+	<b>Tracks:</b>
+	<ul class="unstyled">
+	<% @album.tracks.each do |track| %>
+	<li><%= link_to track.title, track.audio_url %></li>
+	<% end %>
+	</ul>
+</p>
+
+<%= link_to 'Back', admin_albums_path, class: 'btn' %>
+
+<%= link_to 'Edit', edit_admin_album_path(@album), class: 'btn' %>

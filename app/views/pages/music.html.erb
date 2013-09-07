@@ -1,0 +1,74 @@
+<section id="main">
+		<div id="player">
+			<% @albums.each do |album| %>
+			
+			
+			<div class="album row">
+
+				<div class="span4">
+					<img class="album-art" src="<%= album.photo.image_url if album.photo %>" />
+				</div>
+				<div class="span5">
+					<div class="top">
+						<h3><%= album.title %></h3>
+						<% if album.project? %>
+							<h4><%= album.project %></h4>
+						<% end %>
+						<p class="date"><%= album.year %></p>
+						<%= album.cta %>
+					</div>
+
+					<% if album.personnel? %>
+					<div class="personnel">
+						<p><%= album.personnel %></p>
+					</div>
+					<% end %>
+
+
+
+					<% if album.tracks.length > 0 %>
+					<div class="tracks">
+						<h5>Selected tracks:</h5>
+						<% album.tracks.each_with_index do |track, index| %>
+							<div class="track-player" data-title="<%= track.title %>">
+								<span class="title"><%= track.title %></span>
+								<audio preload src="<%= track.audio_url %>"></audio>
+							</div>
+						<% end %>
+					</div>
+					<% end %>
+					
+					<% if album.links.length > 0 %>
+					<div class="available-on">
+						<ul class="unstyled links">
+							<% album.links.each do |link| %>
+							<li class="<%= link.service %>"><a title="<%= link.name %>" href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
+							<% end %>
+						</ul>
+					</div>
+					<% end %>
+					
+						
+				</div>
+
+			</div>
+				
+			<% end %>
+
+		</div>
+		
+
+</section>
+
+
+
+<script>
+
+audiojs.events.ready(function() {
+        audiojs.createAll({
+	css: false
+});
+      });
+
+</script>
+

@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, @track], :html => { :class => 'form-vertical' } do |f| %>
+
+	<p>
+		<%= link_to @track.audio_url %>
+	</p>
+	<%= f.input :title %>
+	<div class="form-actions">
+		<%= f.button :submit, nil, class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', admin_tracks_path, :class => 'btn' %>
+	</div>
+<% end %>

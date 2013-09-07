@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Document:</b>
+  <%= @document.title %>
+</p>
+
+<p>
+  <b>PDF:</b>
+  <%= link_to @document.pdf_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_document_path(@document) %> |
+<%= link_to 'Back', admin_documents_path %>

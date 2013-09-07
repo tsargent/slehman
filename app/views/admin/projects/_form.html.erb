@@ -1,0 +1,22 @@
+<%= simple_form_for [:admin, @project], :html => { :class => 'form-vertical' } do |f| %>
+
+	<%= f.input :name, placeholder: 'Enter Project Name', input_html: { class: 'input-xxlarge'} %>
+	<%= f.input :description,  placeholder: 'Enter Project Description', input_html: { rows: 10, class: 'input-xxlarge'} %>
+
+
+	<fieldset>
+		<legend>Project Photo</legend>
+		<%= select_tag(:photo_id, options_for_select(Photo.all.map { |photo| [photo.image_url, photo.id] }, selected: (@project.photo.id if @project.photo)), prompt: 'No Photo') %>
+	</fieldset>
+	
+	<fieldset>
+		<legend>Project Tracks</legend>
+		<%= select_tag(:tracks, options_for_select(Track.all.map { |track| [track.audio_url, track.id] }, @project.tracks.map {|t| t.id }), multiple: true, class: 'input-xxlarge') %>
+	</fieldset>
+	
+
+	<div class="form-actions">
+		<%= f.button :submit, nil, class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', admin_projects_path, :class => 'btn' %>
+	</div>
+<% end %>
