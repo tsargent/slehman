@@ -30,6 +30,7 @@ module ApplicationHelper
   end
 
   def og_title
+    
     if @og_title 
       @og_title
     else
@@ -67,6 +68,10 @@ module ApplicationHelper
   def bio_body(content)
     out = content.split("\n", 2)[1]
     simple_format(out)
+  end
+  
+  def body_class
+    "#{params[:controller]} #{params[:action]}"
   end
   
 end
