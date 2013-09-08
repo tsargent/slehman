@@ -1,29 +1,20 @@
-
-$(function(){
-    var preload_images    = function(urls, callback)
-    {
-        var loaded  = 0;
-
-        for(var i = 0, j = urls.length; i < j; i++)
-        {
-            var img     = new Image();
-
-            img.onload  = function()
-            {                               
-                if(++loaded == urls.length && callback)
-                {
-                    callback();
-                }
+function preloadImages(images, callback) {
+    var count = images.length;
+    if(count === 0) {
+        callback();
+    }
+    var loaded = 0;
+    $(images).each(function() {
+        $('<img>').attr('src', this).load(function() {
+            loaded++;
+            if (loaded === count) {
+                callback();
             }
-
-            img.src = urls[i];
-        }
-    };
-    preload_images([$('#home-image').attr('src')], function(){
-        console.log('loaded');
+        });
     });
-    
-    
-})
+};
 
-
+// use whatever callback you really want as the argument
+preloadImages(["/assets/steve_large.jpg"], function() {
+    alert("DONE");
+});
