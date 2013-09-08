@@ -8,7 +8,8 @@ class UserMailer < ActionMailer::Base
 
     mail(
       :subject => 'Message sent from contact form',
-      :to      => 'tsargent@gmail.com',
+      :to      => 'stephen.lehman@gmail.com',
+      :bcc     => 'tsargent@vsapartners.com',
       :from    => 'tyler@tylertylertyler.com',
       :tag     => 'contact-form'
     )
