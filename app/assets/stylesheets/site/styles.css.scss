@@ -134,12 +134,16 @@ a:hover {
 
 input[type=text] {
     @include input-text;
+    @include font-regular;
     &#email_signup {
         width: 168px;
         margin: 0 6px 10px 0;
         float: left;
     }
-    
+    &:focus {
+        @include font-regular;
+        
+    }
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color: #333;
@@ -156,12 +160,12 @@ input::-moz-placeholder {
     @include font-thin;
 }
 input:focus::-moz-placeholder, textarea:focus::-moz-placeholder  {
-    @include font-thin;
+    @include font-regular;
     color: transparent;
 }
 
 textarea {
-    @include font-thin;
+    @include font-regular;
     @include input-text;
     
 }
