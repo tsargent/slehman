@@ -170,6 +170,11 @@ textarea {
     
 }
 
+.notice {
+    margin-top: 20px;
+    @include font-semi-bold;
+}
+
 #email_container {
     margin:  30px -5px 40px;
     background: white;
