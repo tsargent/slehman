@@ -109,7 +109,6 @@ body {
     @include font-regular;
     padding-top: 60px;
     letter-spacing: 0.06em;
-    
 }
 
 a { 
@@ -117,7 +116,6 @@ a {
     text-decoration: underline;
     @include transition-property(color);
     @include transition-duration(0.15s);
-//    @include transition-timing-function(ease-in);
 }
 
 .more {
@@ -132,19 +130,18 @@ a:hover {
 }
 
 
-input[type=text] {
-    @include input-text;
-    @include font-regular;
-    &#email_signup {
+#email_signup {
+        @include input-text;
+        @include font-regular;
+        @include box-shadow(none);
         width: 168px;
         margin: 0 6px 10px 0;
         float: left;
+        &:focus {
+            @include font-regular;
+
+        }
     }
-    &:focus {
-        @include font-regular;
-        
-    }
-}
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color: #333;
     @include font-thin;
@@ -181,7 +178,6 @@ textarea {
     padding: 15px;
     @include box-shadow(rgba(0, 0, 0, 0.1) 0.5px 1px 1px 0px);
     
-    height: 100px;
 }
 #email_form .control-label {
     float: left;
@@ -667,13 +663,13 @@ body.pages.index {
         margin-bottom: 40px;
     }
     h4 {
-//        background: black;
-//        margin: 0 0 10px;
-//        color: #fff;
-//        padding: 10px;
     }
+
     a {
         text-decoration: none;
+    }
+    button {
+        margin-bottom: 20px;
     }
 
 }
@@ -946,30 +942,44 @@ body.pages.index {
 
 
 
-.btn.btn-navbar {
+.btn.btn-navbar, .btn.btn-navbar:hover {
     @include border-radius(0);
-    border: 0;
-    background: black;
+    position: absolute;
+    right: 0;
+    background: white;
     margin: 0;
-    padding: 24px 25px;
-    &:hover {
-        background: red;
+    padding: 23px;
+    @include box-shadow(none);
+    @include text-shadow(none);
+    border: 0;
+    
+    .icon-bar {
+        background: black;
+        @include box-shadow(none);
+        
     }
+    
 }
 
 .nav-collapse.in.collapse {
     a {
         @include border-radius(0);
     }
+    
 }
 
 /* Large desktop */
-@media (min-width : 1200px) { }
+@media (min-width : 1200px) { 
+    body {
+    }
+    
+    }
  
 @media (max-width: 979px) { 
     body {
         padding-top: 0;
     }
+    
     
     
     
@@ -979,7 +989,23 @@ body.pages.index {
  
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-    
+    #sidebar {
+//        background: green;
+        #email_signup {
+            width: 133px;
+        }
+        .sidebar-item {
+            .date {
+                float: none;
+                width: 100%;
+            }
+            .link {
+                float: none;
+                width: 100%;
+                
+            }
+        }
+    }
 }
  
 /* Landscape phone to portrait tablet */

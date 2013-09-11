@@ -9,6 +9,8 @@
 	<meta property="og:title" content="<%= og_title %>"/>
 	<meta property="og:url" content="<%= og_url %>"/>
 	<meta property="og:description" content="<%= og_description %>"/>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<%= stylesheet_link_tag    "site/styles.css", :media => "all" %>
 	<%= javascript_include_tag "site/application" %>
@@ -19,10 +21,7 @@
 <script type="text/javascript">var switchTo5x=false;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "ur-2564ea1-e336-b4f2-8512-69d33bad49fe", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-
-
-
-  <%= csrf_meta_tags %>
+<%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
 	<div id="wrapper">
@@ -30,12 +29,10 @@
 			<div class="navbar navbar-fixed-top">
 				<div class="container">
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					      </a>
-					<div class="row">
-						<div class="span12">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
 							<%= link_to 'Steve Lehman', root_path, class: 'brand' %>
 							<div class="nav-collapse collapse">
 								<ul class="nav">
@@ -57,6 +54,8 @@
 									<%= content_tag :li, class: active_path(posts_path) do -%>
 										<%= link_to "News", posts_path %>
 									<% end -%>
+								
+								<!--
 
 									<%= content_tag :li, class: active_path(music_path) do -%>
 										<%= link_to "Music", music_path %>
@@ -78,11 +77,9 @@
 									<%= content_tag :li, class: active_path(contact_path) do -%>
 										<%= link_to "Contact", contact_path %>
 									<% end -%>
+								-->
 								</ul>
 								
-							</div>
-						
-						</div>
 					</div>
 				</div>
 			</div>
