@@ -949,6 +949,7 @@ body.pages.index {
     background: white;
     margin: 0;
     padding: 23px;
+    @include border-radius(0);
     @include box-shadow(none);
     @include text-shadow(none);
     border: 0;
@@ -970,25 +971,40 @@ body.pages.index {
 
 /* Large desktop */
 @media (min-width : 1200px) { 
-    body {
+    #sidebar {
+//        background: yellow;
     }
-    
-    }
+}
  
-@media (max-width: 979px) { 
-    body {
-        padding-top: 0;
+@media (min-width: 980px) and (max-width: 1199px) { 
+    #sidebar {
+//        background: orange;
     }
     
-    
-    
-    
+    #header {
+        .container {
+            width: 100%;
+        }
+    }
 }
 
 
  
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
+    body {
+        padding-top: 0;
+    }
+    
+    #header {
+        .nav {
+            li {
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        .nav-collapse .nav > li > a { margin-bottom: 0;}
+        .nav-collapse .nav { margin-bottom: 0; }
+    }
     #sidebar {
 //        background: green;
         #email_signup {
@@ -1010,6 +1026,9 @@ body.pages.index {
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+    #sidebar {
+//        background: blue;
+    }
     
     
     .post.event .more {
