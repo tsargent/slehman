@@ -546,6 +546,7 @@ hr {
     #home-image {
         display: block;
         position: absolute;
+        max-width: none;
     }
 
 }
@@ -1045,6 +1046,10 @@ body.pages.index {
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+    #home-image-container {
+        display: none;
+    }
+    
     body { padding-top: 0; }
     
     #sidebar {
@@ -1060,18 +1065,6 @@ body.pages.index {
             color: #333;
         }
     }
-}
- 
-/* Landscape phones and down */
-@media (max-width: 480px) {
-    body { 
-        padding-top: 0; 
-        background: #fcfcfc;
-    }
-
-    .navbar .container { position: relative; }
-
-
     #home {
         .read-more {
             display: block;
@@ -1113,5 +1106,17 @@ body.pages.index {
 
         }
     }
+    
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    body { 
+        padding-top: 0; 
+        background: #fcfcfc;
+    }
+
+    .navbar .container { position: relative; }
+    
 
 }

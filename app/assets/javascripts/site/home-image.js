@@ -2,7 +2,7 @@ var imagesArray = ['/assets/steve_large.jpg'];
 
 $(function(){
     
-    var image_w, image_h;
+    var image_w, image_h, home_image, ratio;
     
     function preloadImages(images, callback) {
         var count = images.length;
@@ -21,12 +21,42 @@ $(function(){
     };
 
     var onImageLoad = function() {
-        var home_image = $('#home-image').attr('src', imagesArray[0]).hide(),
+        home_image = $('#home-image').attr('src', imagesArray[0]).hide(),
         container = $('#home-image-container');
         image_w = home_image.width();
         image_h = home_image.height();
+        ratio = image_h/image_w;
         home_image.fadeIn();
+        $(window).resize();
     }
 
     preloadImages(imagesArray, onImageLoad);
+    
+    $(window).on('resize', function(){
+        var win_h = $(window).height(), 
+            win_w = $(window).width(),
+            h, w, t, l;
+
+		if(win_h/win_w <= ratio) {
+			// Go by width
+			console.log('go by width');
+			w = win_w;
+			h = win_w * ratio;
+		} else {
+			// Go by height
+			console.log('go by height');
+			h = win_h;
+			w = win_h / ratio;
+		}
+		h = Math.ceil(h);
+		w = Math.ceil(w);
+		
+		t = 0;
+		
+		
+		l = (win_w - w)/2;
+		
+        home_image.css({'height':h, 'width':w, 'position': 'absolute', 'top': 0, 'left': l+'px'});
+    });
+
 });
