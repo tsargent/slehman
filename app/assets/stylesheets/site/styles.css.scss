@@ -93,10 +93,10 @@ $border-color: #ccc;
 //    @include font-regular;
     border: 1px solid #ddd;
     background: #fff;
-//    &:focus {
-//        border: 1px solid #ddd;
-//        @include box-shadow(0 0 0 0);
-//    }
+    &:focus {
+        border: 1px solid #ddd;
+        @include box-shadow(0 0 0 0);
+    }
 }
 
 
@@ -129,7 +129,11 @@ a:hover {
     color: red;
 }
 
-
+input[type="text"] {
+    @include border-radius(0);
+    @include box-shadow(none);
+    @include input-text;
+}
 #email_signup {
         @include input-text;
         @include font-regular;
