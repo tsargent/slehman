@@ -977,9 +977,27 @@ body.pages.index {
 }
  
 @media (min-width: 980px) and (max-width: 1199px) { 
+    #email_form .control-label { float: none; }
+
+
     #sidebar {
-//        background: orange;
+        #email_signup {
+            width: 186px;
+        }
+        .sidebar-item {
+            .date {
+                float: none;
+                width: 100%;
+            }
+            .link {
+                float: none;
+                width: 100%;
+
+            }
+        }
     }
+
+
     
     #header {
         .container {
@@ -992,9 +1010,11 @@ body.pages.index {
  
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
+
     body {
         padding-top: 0;
     }
+    #email_form .control-label { float: none; }
     
     #header {
         .nav {
