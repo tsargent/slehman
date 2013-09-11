@@ -1011,9 +1011,8 @@ body.pages.index {
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
 
-    body {
-        padding-top: 0;
-    }
+    body { padding-top: 0; }
+
     #email_form .control-label { float: none; }
     
     #header {
@@ -1046,6 +1045,8 @@ body.pages.index {
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+    body { padding-top: 0; }
+    
     #sidebar {
 //        background: blue;
     }
@@ -1054,7 +1055,62 @@ body.pages.index {
     .post.event .more {
         float: left;
     }
+    .home-content {
+        h3 {
+            color: #333;
+        }
+    }
 }
  
 /* Landscape phones and down */
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+    body { 
+        padding-top: 0; 
+        background: #fcfcfc;
+    }
+
+    .navbar .container { position: relative; }
+
+
+    #home {
+        .read-more {
+            display: block;
+            float:none;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            color: white;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .quote {
+            margin-bottom: 0;
+        }
+        .source {
+            margin-left: 20px;
+        }
+        h4 {
+            color: #333;
+        }
+        .home-content {
+            padding: 20px;
+    		top: 0;
+        }
+        a {
+             color: #333;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        p {
+            color: #333;
+        }
+
+        ul {
+            color: white;
+
+        }
+    }
+
+}
