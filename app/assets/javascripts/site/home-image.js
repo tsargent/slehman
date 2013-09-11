@@ -25,8 +25,15 @@ $(function(){
         container = $('#home-image-container');
         image_w = home_image.width();
         image_h = home_image.height();
+        
+        // if 0 we want to load it again
+        if(image_w == 0) preloadImages(imagesArray, onImageLoad);
+        
         ratio = image_h/image_w;
-        home_image.fadeIn();
+        home_image.fadeIn(200, function(){
+            $(window).resize();
+        });
+        // home_image.show();
         $(window).resize();
     }
 
