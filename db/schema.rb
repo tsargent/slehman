@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905021134) do
+ActiveRecord::Schema.define(:version => 20130912231440) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -100,12 +100,13 @@ ActiveRecord::Schema.define(:version => 20130905021134) do
     t.string   "title"
     t.text     "body"
     t.boolean  "published"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "slug"
     t.boolean  "sidebar"
     t.text     "excerpt"
     t.boolean  "display"
+    t.datetime "published_at"
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug"

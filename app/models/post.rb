@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-  attr_accessible :body, :excerpt, :display, :title, :photo, :photo_attributes, :published
+  attr_accessible :body, :excerpt, :display, :title, :photo, :photo_attributes, :published, :published_at
   has_one :photo
   accepts_nested_attributes_for :photo
 
@@ -17,11 +17,11 @@ class Post < ActiveRecord::Base
   end
 
   def next
-    Post.published().where("created_at > ?", created_at).first()
+    Post.published().where("published_at > ?", published_at).first()
   end
 
   def prev
-    Post.published().where("created_at < ?", created_at).order('created_at DESC').last
+    Post.published().where("published_at < ?", published_at).first()
     
   end
 
