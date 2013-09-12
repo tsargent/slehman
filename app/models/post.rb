@@ -9,7 +9,6 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  default_scope :order => "created_at DESC"
   scope :published, where(display: true)
   scope :recent, published.limit(3)
 
@@ -18,13 +17,23 @@ class Post < ActiveRecord::Base
   end
 
   def next
-    Post.published().where("id > ?", id).order("id ASC").last
-    
+    Post.published().where("created_at > ?", created_at).first()
   end
-  
+
   def prev
-    Post.published().where("id < ?", id).order("id DESC").first()
+    Post.published().where("created_at < ?", created_at).order('created_at DESC').last
     
   end
+
+
+  # def next
+  #   Event.where("date > ?", date).first()
+  # end
+  # 
+  # def prev
+  #   Event.where("date < ?", date).order('date DESC').last
+  # end
+
+
 
 end
