@@ -20,7 +20,7 @@
 		</header>
 		
 		
-		<%= simple_format(@post.body, sanitize: false) %>
+		<%= simple_format(@post.body, {}, sanitize: false) %>
 		
 		<div class="sharing">
 			<span class='st_facebook_custom st_custom' displayText='Facebook' st_image="<%= og_image %>" st_url="<%= og_url %>" st_title="<%= og_title %>"><span class="icon"></span></span>
