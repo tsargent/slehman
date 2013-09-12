@@ -814,7 +814,8 @@ body.pages.index {
     margin-bottom: 20px;
     padding: 5px 20px 10px;
     background: #fefefe;
-    @include box-shadow(rgba(0, 0, 0, 0.1) 0px 0px 1px 1px);
+    @include box-shadow(rgba(0, 0, 0, 0.1) 0.5px 1px 1px 0px);
+    
     h5 {
         @include font-regular;
         color: #aaa;
