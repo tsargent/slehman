@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   def index
     
-    @posts = Post.recent
+    @posts = Post.recent.order('published_at DESC')
     @events = Event.upcoming
     @video = Video.first
     

@@ -7,7 +7,7 @@
 					<div class="sidebar-item clearfix">
 						
 						<div class="date">
-							<%= format_date_sidebar(post.created_at) %>
+							<%= format_date_sidebar(post.published_at) %>
 						</div>
 						<div class="link">
 							<%= link_to post.title, post_path(post) %>

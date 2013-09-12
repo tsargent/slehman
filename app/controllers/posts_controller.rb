@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def index
     
-    @posts = Post.published.order('created_at DESC').page(params[:page]).per(10)
+    @posts = Post.published.order('published_at DESC').page(params[:page]).per(10)
     @page_title = ' | News'
     
 

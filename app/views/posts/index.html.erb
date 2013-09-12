@@ -11,7 +11,7 @@
 			
 			<div class="span6">
 				<header>
-					<h5><span class="date"><%= format_date(post.created_at) %></span></h5>
+					<h5><span class="date"><%= format_date(post.published_at) %></span></h5>
 					<h3 class="heading"><%= link_to post.title, post_path(post) %></a><span class="header-hrule"></span></h3>
 				</header>
 				<%= simple_format(post.excerpt, class: 'lead')  %>

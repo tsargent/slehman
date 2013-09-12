@@ -13,7 +13,7 @@
 				</div>
 			<% end %>
 
-			<p><time pubdate datetime="<%= @post.created_at %>"><%= @post.created_at.to_date.to_formatted_s(:long) %></time></p>
+			<p><time pubdate datetime="<%= @post.published_at %>"><%= @post.published_at.to_date.to_formatted_s(:long) %></time></p>
 
 			<h2><%= @post.title %></h2>
 
