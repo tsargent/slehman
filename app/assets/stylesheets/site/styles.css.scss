@@ -346,6 +346,7 @@ h1, h2, h3, h4, h5 {
     
     a {
         @include box-shadow(rgba(0, 0, 0, 0.1) 0.5px 1px 1px 0px);
+        
         text-decoration: none;
         padding: 20px;
         display: block;
@@ -806,7 +807,9 @@ body.pages.index {
     
     img.album-art {
         display: block;
-        @include box-shadow(#eee 0px 1px 1px 1px);
+        @include box-shadow(rgba(0, 0, 0, 0.1) 0.5px 1px 1px 0px);
+        
+        
     }
 }
 
