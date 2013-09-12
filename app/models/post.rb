@@ -18,14 +18,12 @@ class Post < ActiveRecord::Base
   end
 
   def next
-    # Post.published().where("id > ?", id).order("id ASC").last
-    Post.published().where("created_at > ?", created_at).first()
+    Post.published().where("id > ?", id).order("id ASC").last
     
   end
   
   def prev
-    # Post.published().where("id < ?", id).order("id DESC").first()
-    Post.published().where("created_at < ?", created_at).order('created_at DESC').last
+    Post.published().where("id < ?", id).order("id DESC").first()
     
   end
 
