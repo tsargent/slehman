@@ -1,6 +1,7 @@
 <%= simple_form_for [:admin, @post], :html => { :class => 'form-vertical' } do |f| %>
 
 	<%= f.input :display, label: false, inline_label: 'Display' %>
+	<%= f.input :published_at %>
 	<%= f.input :title, placeholder: 'Enter Post Title', input_html: { class: 'input-xxlarge'} %>
 	<%= f.input :excerpt,  placeholder: 'Enter Post Excerpt', input_html: { rows: 2, class: 'input-xxlarge'} %>
 	<%= f.input :body,  placeholder: 'Enter Post Body', input_html: { rows: 10, class: 'input-xxlarge'} %>

@@ -15,14 +15,12 @@
 							</div>
 
 							<h4>Latest News:</h4>
-							<ul class="unstyled">
 							<% for post in @posts %>
-								<li class="clearfix">
-									<span class="date"><%= format_date(post.published_at) %>:</span>
-									<%= link_to post.excerpt, post_path(post)%>
-								</li>
+							<div class="row home-item">
+								<div class="span1"><span class="date"><%= format_date(post.published_at) %></span></div>
+								<div class="span6"><%= link_to post.excerpt, post_path(post) %></div>
+							</div>
 							<% end %>
-							</ul>
 							<a href="<%= posts_path %>" class="more read-more"><i class="icon-plus icon-white"></i></a>
 							<h4>Upcoming Events:</h4>
 							<ul class="unstyled">

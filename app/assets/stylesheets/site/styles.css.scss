@@ -575,22 +575,20 @@ body.pages.index {
     .container {
         position: relative;
     }
-    li {
-        max-width: 500px;
-        margin-bottom: 10px;
-        a {
-            display: block;
-            float: left;
-            width: 400px;
-        }
+    
+    .home-item {
+        margin-bottom: 6px;
+        color: white;
+        font-size: 16px;
+        letter-spacing: 0.1em;
         .date {
+            font-size: 14px;
             @include font-thin;
-            color: white;
-            display: block;
-            float: left;
-            width: 100px;
+            color: #eee;
         }
     }
+
+
     #quotes {
         margin: 20px 0 30px;
     }
@@ -613,7 +611,7 @@ body.pages.index {
         color: #f8f8f8;
     }
     .home-content {
-        padding: 20px;
+        padding: 20px 0;
 		top: 0;
 
     }
@@ -1129,7 +1127,7 @@ body.pages.index {
             color: white;
 
         }
-        li .date {
+        .home-item .date {
             color: black;
         }
     }

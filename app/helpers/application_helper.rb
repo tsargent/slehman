@@ -8,7 +8,7 @@ module ApplicationHelper
   
   def format_date(date)
     # date.to_formatted_s(:long)
-    date.strftime("%b %e, %Y")
+    date.strftime("%m/%d/%y")
   end
   
   def format_date_sidebar(date)
