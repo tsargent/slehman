@@ -579,10 +579,8 @@ body.pages.index {
     .home-item {
         margin-bottom: 6px;
         color: white;
-        font-size: 16px;
-        letter-spacing: 0.1em;
         .date {
-            font-size: 14px;
+            letter-spacing: 0.1em;
             @include font-thin;
             color: #eee;
         }
