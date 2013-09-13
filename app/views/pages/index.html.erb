@@ -23,14 +23,12 @@
 							<% end %>
 							<a href="<%= posts_path %>" class="more read-more"><i class="icon-plus icon-white"></i></a>
 							<h4>Upcoming Events:</h4>
-							<ul class="unstyled">
 							<% for event in @events %>
-								<li class="clearfix">
-									<span class="date"><%= format_date(event.date) %>:</span>
-									<%= link_to "#{event.title} in #{event.location}", event_path(event) %>
-								</li>
+							<div class="row home-item">
+								<div class="span1"><span class="date"><%= format_date(event.date) %></span></div>
+								<div class="span6"><%= link_to "#{event.title} in #{event.location}", event_path(event) %></div>
+							</div>
 							<% end %>
-							</ul>
 							<a href="<%= events_path %>" class="more read-more"><i class="icon-plus icon-white"></i></a>
 							
 						</div>
