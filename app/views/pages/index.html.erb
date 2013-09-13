@@ -18,7 +18,7 @@
 							<ul class="unstyled">
 							<% for post in @posts %>
 								<li>
-									<%= format_date(post.published_at) %>: 
+									<span class="date"><%= format_date(post.published_at) %>:</span>
 									<%= link_to post.excerpt, post_path(post)%>
 								</li>
 							<% end %>
@@ -28,7 +28,7 @@
 							<ul class="unstyled">
 							<% for event in @events %>
 								<li>
-									<%= format_date(event.date) %>: 
+									<span class="date"><%= format_date(event.date) %>:</span>
 									<%= link_to "#{event.title} in #{event.location}", event_path(event) %>
 								</li>
 							<% end %>

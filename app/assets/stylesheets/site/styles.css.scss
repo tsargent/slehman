@@ -576,9 +576,14 @@ body.pages.index {
         position: relative;
     }
     li {
-        color: #aaa;
         max-width: 500px;
         margin-bottom: 10px;
+        
+        .date {
+            color: white;
+            display: inline-block;
+            width: 90px;
+        }
     }
     #quotes {
         margin: 20px 0 30px;
