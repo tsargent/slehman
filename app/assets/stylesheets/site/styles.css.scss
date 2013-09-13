@@ -578,11 +578,17 @@ body.pages.index {
     li {
         max-width: 500px;
         margin-bottom: 10px;
-        
+        a {
+            display: block;
+            float: left;
+            width: 400px;
+        }
         .date {
+            @include font-thin;
             color: white;
-            display: inline-block;
-            width: 90px;
+            display: block;
+            float: left;
+            width: 100px;
         }
     }
     #quotes {

@@ -17,7 +17,7 @@
 							<h4>Latest News:</h4>
 							<ul class="unstyled">
 							<% for post in @posts %>
-								<li>
+								<li class="clearfix">
 									<span class="date"><%= format_date(post.published_at) %>:</span>
 									<%= link_to post.excerpt, post_path(post)%>
 								</li>
@@ -27,7 +27,7 @@
 							<h4>Upcoming Events:</h4>
 							<ul class="unstyled">
 							<% for event in @events %>
-								<li>
+								<li class="clearfix">
 									<span class="date"><%= format_date(event.date) %>:</span>
 									<%= link_to "#{event.title} in #{event.location}", event_path(event) %>
 								</li>
