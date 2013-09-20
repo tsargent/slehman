@@ -12,10 +12,17 @@ class EventsController < ApplicationController
   
   def past
     @events = Event.past
-    @page_title = ' | Past Events'
-    respond_to do |format|
-      format.html { render 'index'}
-      format.json { render json: @events }
+    if @events.count > 0
+      @page_title = ' | Past Events'
+      respond_to do |format|
+        format.html { render 'index'}
+        format.json { render json: @events }
+      end
+    else 
+      respond_to do |format|
+        format.html { redirect_to events_path }
+      end
+
     end
 
   end

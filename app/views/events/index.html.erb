@@ -9,7 +9,7 @@
 		<%= link_to('Past Events', events_past_path) if Event.past.count > 0 %>
 		<%= " | " if (Event.past.count > 0 ) %>
 		
-		<%= link_to('Upcoming Events', events_path) %> 
+		<%= link_to('Upcoming Events', events_path) if Event.past.count > 0 %> 
 	</div>
 	<% if @events.count > 0 %>
 
