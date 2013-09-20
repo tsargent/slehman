@@ -2,7 +2,7 @@ class Admin::EventsController < AdminController
   # GET /admin/events
   # GET /admin/events.json
   def index
-    @events = Event.all
+    @events = Event.order('date DESC')
 
     respond_to do |format|
       format.html # index.html.erb

@@ -6,11 +6,12 @@
 	
 	
 	<div id="events_nav">
-		<%= link_to 'Past Events', events_past_path %> | 
-		<%= link_to 'Upcoming Events', events_path %> 
+		<%= link_to('Past Events', events_past_path) if Event.past.count > 0 %>
+		<%= " | " if (Event.past.count > 0 ) %>
+		
+		<%= link_to('Upcoming Events', events_path) %> 
 	</div>
 	<% if @events.count > 0 %>
-	
 
 		<% @events.each do |event| %>
 			<article class="post event <%= 'past' if params[:action] == 'past' %>">
@@ -42,8 +43,9 @@
 		<% end %>
 
 	<% else %>
-
-
+		<% if params[:action] == 'index' %>
+			<p class="lead">No events scheduled.  Check again soon!</p>
+		<% end %>
 	<% end %>
 
 </section>
