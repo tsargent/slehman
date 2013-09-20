@@ -262,6 +262,10 @@ button, .more {
     padding-top: 20px;
     padding-bottom: 30px;
     color: #aaa;
+    a {
+        color: #aaa;
+        &:hover { color: white; }
+    }
 }
 
 #home {
