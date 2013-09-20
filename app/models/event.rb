@@ -4,11 +4,12 @@ class Event < ActiveRecord::Base
   validates :title, :location, :date, presence: true
   
   extend FriendlyId
+
   friendly_id :date, use: :slugged
 
-  default_scope :order => "date ASC"
   
-  scope :upcoming, limit(5)
+  scope :upcoming, where('date > ?', Date.today - 1).order('date ASC')
+  scope :past, where('date < ?', Date.today).order('date DESC')
 
   def next
     Event.where("date > ?", date).first()

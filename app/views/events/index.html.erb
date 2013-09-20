@@ -5,22 +5,46 @@
 <section id="main">
 	
 	
-	<% @events.each do |event| %>
-	<article class="post event">
-		<div class="row">
-			<div class="span2">
-				<div class="date"><%= format_date(event.date) %></div>
-				<div class="date"><%= event.time_string %></div>
-			</div>
-			<div class="span6">
-				<h4><%= link_to "#{event.title} @ #{event.venue}, #{event.location}", event_path(event) %></h4>
-				<p><%= event.body %></p>
-			</div>
-			<div class="span1">
-				<%= link_to('Tickets', event.url, class: 'more event-more', target: '_blank') if event.url? %>
-			</div>
-		</div>
-	</article>
+	<div id="events_nav">
+		<%= link_to 'Past Events', events_past_path %> | 
+		<%= link_to 'Upcoming Events', events_path %> 
+	</div>
+	<% if @events.count > 0 %>
+	
+
+		<% @events.each do |event| %>
+			<article class="post event <%= 'past' if params[:action] == 'past' %>">
+				<div class="row">
+					<div class="span2">
+						<div class="date"><%= format_date(event.date) %></div>
+						<div class="date"><%= event.time_string %></div>
+					</div>
+					<div class="span6">
+						<% if params[:action] == 'index' %>
+							<h4><%= link_to "#{event.title} @ #{event.venue}, #{event.location}", event_path(event) %></h4>
+							<p><%= event.body %></p>
+						<% else %>
+							<p><%= "#{event.title} @ #{event.venue}, #{event.location}" %><br><%= event.body %></p>
+						<% end %>
+					</div>
+					
+					
+					<% if params[:action] == 'index' %>
+						<div class="span1">
+							<%= link_to('Tickets', event.url, class: 'more event-more', target: '_blank') if event.url? %>
+						</div>
+					<% end %>
+
+				</div>
+
+			</article>
+
+		<% end %>
+
+	<% else %>
+
+
 	<% end %>
+
 </section>
 

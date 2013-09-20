@@ -418,6 +418,11 @@ h1, h2, h3, h4, h5 {
         padding-bottom: 20px;
         margin-bottom: 20px;
         
+        &.past {
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
     }
     
     &.project {
@@ -762,6 +767,12 @@ body.pages.index {
 /* events
 -------------------------------------*/
 
+#events_nav {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
 /* music 
 -------------------------------------*/
 .available-on {
@@ -1080,6 +1091,8 @@ body.pages.index {
     .post.event .more {
         float: left;
     }
+    
+    
     .home-content {
         h3 {
             color: #333;

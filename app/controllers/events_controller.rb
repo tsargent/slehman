@@ -2,14 +2,22 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.upcoming
     @page_title = ' | Events'
-    
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
     end
+  end
+  
+  def past
+    @events = Event.past
+    @page_title = ' | Past Events'
+    respond_to do |format|
+      format.html { render 'index'}
+      format.json { render json: @events }
+    end
+
   end
 
   # GET /events/1

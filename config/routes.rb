@@ -11,7 +11,9 @@ Stevelehman::Application.routes.draw do
   resources :videos
   # resources :posts
   resources :projects
+  match "events/past" => "events#past"
   resources :events
+  
   resources :articles, :path => 'scholarship'
 
   resources :posts, :path => "news", :singular => "news"
