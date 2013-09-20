@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   scope :published, where(display: true)
-  scope :recent, published.order('published_at DESC').limit(3)
+  scope :recent, published.order('published_at DESC').limit(4)
 
   def og_image
     self.photo.image_url

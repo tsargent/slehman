@@ -10,6 +10,7 @@ class Event < ActiveRecord::Base
   
   scope :upcoming, where('date > ?', Date.today - 1).order('date ASC')
   scope :past, where('date < ?', Date.today).order('date DESC')
+  scope :next_few, upcoming.limit(4)
 
   def next
     Event.where("date > ?", date).first()
