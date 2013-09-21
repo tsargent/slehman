@@ -5,6 +5,7 @@ class VideosController < ApplicationController
     @videos = Video.published.order('position').page(params[:page]).per(10)
     
     @page_title = ' | Videos'
+    @og_title = "Steve Lehman | Videos"
     
 
     respond_to do |format|
@@ -13,14 +14,14 @@ class VideosController < ApplicationController
     end
   end
 
-
-  def show
-    @video = Video.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
-  end
+  # 
+  # def show
+  #   @video = Video.find(params[:id])
+  # 
+  #   respond_to do |format|
+  #     format.html # show.html.erb
+  #     format.json { render json: @post }
+  #   end
+  # end
 
 end
