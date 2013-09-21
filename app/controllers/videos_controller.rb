@@ -2,6 +2,8 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.published
+    @videos = Video.published.order('position').page(params[:page]).per(10)
+    
     @page_title = ' | Videos'
     
 

@@ -4,22 +4,22 @@
 		<article class="post videos">
 		
 		<div class="row">
-		<div class="span4">
-			<div class="video-container">
-				<%= video.embed.html_safe %>
+			
+			<div class="span5">
+				<div class="video-container">
+					<%= video.embed.html_safe %>
+				</div>
+			</div>
+			<div class="span4">
+				<h3><%= video.title.html_safe  %></h3>
 			</div>
 		</div>
-		<div class="span5">
-			<header>
-				<h3 class="heading"><%= video.title %></a><span class="header-hrule"></span></h3>
-			</header>
-			<%= simple_format(video.description)  %>
-			
-		</div>
-		</div>
+		
 		</article>
 		
 		<% end %>
+		<%= paginate @videos %>
+		
 				
 				
 
