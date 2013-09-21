@@ -81,6 +81,13 @@ Stevelehman::Application.routes.draw do
       resources :documents
       resources :posts
       resources :tracks
+
+      resources :videos do
+        collection do
+          post 'sort'
+        end
+      end
+
       resources :albums do
         collection do
           post 'sort'

@@ -1,0 +1,45 @@
+<h1>Videos</h1>
+
+<table class="table table-striped sortable">
+	<thead>
+	  <tr>
+	    <th>Sort</th>
+	    <th>ID</th>
+		<th>Service</th>
+		<th>URL</th>
+		<th>Embed</th>
+	    <th>Title</th>
+	    <th>Description</th>
+	    <th>Created</th>
+	    <th>Updated</th>
+	    <th>Actions</th>
+	  </tr>
+	</thead>
+	<tbody data-update-url="<%= sort_admin_videos_url %>">
+		<% @videos.each do |video| %>
+		<%= content_tag_for :tr, video do %>
+		
+			<td class="sort"><i class="icon-resize-vertical"></i></td>
+			<td><%= video.id %></td>
+		    <td><%= video.service %></td>
+		    <td><%= video.url %></td>
+		    <td><%= video.embed %></td>
+		    <td><%= video.title %></td>
+		    <td><%= video.description %></td>
+		    <td><%= video.created_at %></td>
+		    <td><%= video.updated_at %></td>
+		    <td>
+				<%= link_to 'Show', [:admin, video], class: 'btn btn-mini' %>
+				<%= link_to 'Edit', edit_admin_video_path(video), class: 'btn btn-mini' %>
+				<%= link_to 'Destroy', [:admin, video], method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-mini btn-danger' %>
+			</td>
+
+		<% end %>
+		<% end %>
+		
+	</tbody>
+
+</table>
+
+
+<%= link_to 'New Video', new_admin_video_path, class: 'btn btn-primary' %>

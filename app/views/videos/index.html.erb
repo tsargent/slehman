@@ -1,40 +1,28 @@
 <section id="main">
-	<div class="row">
-		<div class="span5">
-			<article class="post videos">
-				<p class="lead">Videos coming soon!  In the meantime,<br>check out Steve&apos;s <a href="https://vimeo.com/channels/582160" target="_blank">Vimeo</a> and <a href="http://www.youtube.com/playlist?list=PLZ0xdRYIDh18qmpYLvorluY5mbIrlctr0" target="_blank">YouTube</a> pages.</p>
-				<ul id="video_links" class="unstyled inline social">
-				<li class="vimeo"><a href="https://vimeo.com/channels/582160" target="_blank">Vimeo</a></li>
-				<li class="youtube"><a href="http://www.youtube.com/playlist?list=PLZ0xdRYIDh18qmpYLvorluY5mbIrlctr0" target="_blank">YouTube</a></li>
-				</ul>
-				
-				<!--
-				
-				<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
-			      poster="http://video-js.zencoder.com/oceans-clip.png"
-			      data-setup="{}">
-			    <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
-			    <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
-			    <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
-			    <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>
-			  </video>
-			-->
-			  
-			
-			
-			<!--  http://www.youtube.com/watch?v=skwBf5b7rS4 -->
-				<video id="example_2" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
-			      poster=""
-			      data-setup='{"techOrder":"youtube"}'>
-					<source src="http://www.youtube.com/watch?v=skwBf5b7rS4" type="video/youtube" />
-				</video>
-				
-				
-			</article>
+
+		<% @videos.each do |video| %>
+		<article class="post videos">
+		
+		<div class="row">
+		<div class="span4">
+			<div class="video-container">
+				<%= video.embed.html_safe %>
+			</div>
 		</div>
-	</div>
+		<div class="span5">
+			<header>
+				<h3 class="heading"><%= video.title %></a><span class="header-hrule"></span></h3>
+			</header>
+			<%= simple_format(video.description)  %>
+			
+		</div>
+		</div>
+		</article>
 		
-		
+		<% end %>
+				
+				
+
 </section>
 
 
