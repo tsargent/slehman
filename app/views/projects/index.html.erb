@@ -6,24 +6,30 @@
 					<%= image_tag project.photo.image_url(:medium) if project.photo %>
 				</div>
 				<div class="span6">
-					<header>
-						<h3><%= project.name %><span class="header-hrule"></span></h3>
-					</header>
-					<div class="description">
-						<%= simple_format(project.description) %>
+					
+					<div class="right-pad">
+						<header>
+							<h3><%= project.name %><span class="header-hrule"></span></h3>
+						</header>
+						<div class="description">
+							<%= simple_format(project.description) %>
+						</div>
+
+						<% if project.tracks.length > 0 %>
+							<div class="tracks">
+								<h5>Selected tracks:</h5>
+								<% project.tracks.each do |track| %>
+									<div class="track-player" data-title="<%= track.title %>">
+										<span class="title"><%= track.title %></span>
+										<audio preload src="<%= track.audio_url %>"></audio>
+									</div>
+								<% end %>
+							</div>
+						<% end %>
+						
 					</div>
 					
-					<% if project.tracks.length > 0 %>
-						<div class="tracks">
-							<h5>Selected tracks:</h5>
-							<% project.tracks.each do |track| %>
-								<div class="track-player" data-title="<%= track.title %>">
-									<span class="title"><%= track.title %></span>
-									<audio preload src="<%= track.audio_url %>"></audio>
-								</div>
-							<% end %>
-						</div>
-					<% end %>
+					
 					
 				</div>
 			</div><!-- .row -->

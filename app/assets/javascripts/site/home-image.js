@@ -63,7 +63,7 @@ $(function(){
 		
 		l = (win_w - w)/2;
 		
-        home_image.css({'height':h, 'width':w, 'position': 'absolute', 'top': 0, 'left': l+'px'});
+        home_image.css({'height':h, 'width':w, 'position': 'fixed', 'top': 0, 'left': l+'px'});
     });
 
 });

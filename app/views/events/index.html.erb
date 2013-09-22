@@ -20,7 +20,7 @@
 						<div class="date"><%= format_date(event.date) %></div>
 						<div class="date"><%= event.time_string %></div>
 					</div>
-					<div class="span6">
+					<div class="span5">
 						<% if params[:action] == 'index' %>
 							<h4><%= link_to "#{event.title} @ #{event.venue}, #{event.location}", event_path(event) %></h4>
 							<p><%= event.body %></p>
@@ -31,8 +31,10 @@
 					
 					
 					<% if params[:action] == 'index' %>
-						<div class="span1">
+						<div class="span2">
+							<div class="right-pad">
 							<%= link_to('Tickets', event.url, class: 'more event-more', target: '_blank') if event.url? %>
+							</div>
 						</div>
 					<% end %>
 

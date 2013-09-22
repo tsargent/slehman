@@ -87,10 +87,17 @@
 			<div class="row">
 		
 				<div class="span9">
+					<div class="primary">
 					<%= yield %>
+					</div>
 				</div>
+				
+				
 				<div class="span3">
-					<%= render "shared/sidebar" %>
+					<div class="secondary">
+						<%= render "shared/sidebar" %>
+						
+					</div>
 				</div>
 			</div>
 		</div>
@@ -101,19 +108,23 @@
 
 		<% end %>
 
-		<footer id="footer">
+
+		<div id="push"></div>
+	</div><!-- #wrapper -->
+	
+	<footer id="footer">
+		<div id="footer-content">
 			<div class="container">
 				<div class="row">
-					<div class="span3"><span class="copyright">&copy; Steve Lehman</span> | site by <a href="http://www.linkedin.com/in/tylersargent" target="_blank">Tyler Sargent</a></div>
+					<div class="span3">&copy; Steve Lehman</div>
 					<div class="span3"></div>
 					<div class="span3"></div>
-					<div class="span3">
-					</div>
+					<div class="span3">site by <a href="http://www.linkedin.com/in/tylersargent" target="_blank">Tyler Sargent</a></div>
 				</div>
 			</div>
-		</footer>
-
-	</div><!-- #wrapper -->
+		</div>
+	</footer>
+	
 
 	<% if current_page?(:controller => 'pages', :action => 'index') %>
 	<div id="home-image-container" class="">
