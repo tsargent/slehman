@@ -113,10 +113,8 @@ body, html { height: 100%; }
 body {
     color: $text_color;
     @include font-regular;
-//    padding-top: 60px;
     letter-spacing: 0.06em;
-//    background-color: #ffffff; // Old browsers
-    
+    background-color: $bg-color-main;
 }
 
 .primary {
