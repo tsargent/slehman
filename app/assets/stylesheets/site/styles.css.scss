@@ -46,7 +46,8 @@ $link_color: #000000;
 $header-color: #fff;
 $border-color: #ccc;
 
-$bg-color-aside: #ff0000;
+$bg-color-main: #fdfdfd;
+$bg-color-aside: #fdfdfd;
 $bg-color-footer: #141414;
 $bg-color-wrapper: #fdfdfd;
 
@@ -114,9 +115,7 @@ body {
     @include font-regular;
 //    padding-top: 60px;
     letter-spacing: 0.06em;
-    background-color: #ffffff; // Old browsers
-//    @include filter-gradient($bg-color-main, $bg-color-aside, horizontal); // IE6-9
-//    @include background-image(linear-gradient(left, $bg-color-main 0%,$bg-color-main 50%,$bg-color-aside 50%, $bg-color-aside 100%));
+//    background-color: #ffffff; // Old browsers
     
 }
 
@@ -125,7 +124,8 @@ body {
     padding-bottom: 40px;
 }
 .secondary {
-    padding-top: $header-height;
+    padding: $header-height 15px 0;
+    margin: 0 -15px;
     
 //    background: $bg-color-aside;
 }
@@ -277,6 +277,8 @@ button, .more {
 
 
 #footer {
+    position: relative;
+    z-index: 1000;
     background: $bg-color-footer;
     font-size: 12px;
     color: #777;
@@ -314,12 +316,12 @@ body.pages.index {
 
 
 #wrapper {
-    background: $bg-color-wrapper;
     min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto ($footer-height * -1); 
-    }
+    
+}
 
 
 /* Header 
@@ -1120,6 +1122,16 @@ body.pages.index {
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+    .primary { padding-top: 0; }
+    .secondary { padding-top: 0; }
+    body {
+        background-image: none;
+    }
+    
+    
+    
+    
+    
     
     #header {
         .nav {
