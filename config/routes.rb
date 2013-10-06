@@ -1,11 +1,22 @@
 Stevelehman::Application.routes.draw do
   
 
-  devise_for :users, :controllers => { 
-    :sessions => "admin/sessions", 
-    :passwords => "admin/passwords",
-    :registrations => "admin/registrations"
-  }
+  # devise_for :users, :controllers => { 
+  #   :sessions => "admin/sessions", 
+  #   :passwords => "admin/passwords",
+  #   :registrations => "admin/registrations"
+  # }
+
+  devise_for :users, 
+    :controllers => { 
+      :sessions => "admin/sessions", 
+      :passwords => "admin/passwords",
+      :registrations => "admin/registrations"
+    }, :skip => [:registrations]                                          
+      as :user do
+        get 'users/edit' => 'admin/registrations#edit', :as => 'edit_user_registration'    
+        put 'users/:id' => 'admin/registrations#update', :as => 'user_registration'            
+      end
 
   post "/emails/subscribe" => "emails#subscribe"
   post "/emails/message" => "emails#message"

@@ -19,6 +19,8 @@
 	      </a>
 	      <a class="brand" href="#">Steve Lehman</a>
 			<div class="nav-collapse">
+				<% if user_signed_in? %>
+				
 				<ul class="nav">
 					<li class="divider-vertical"></li>
 					<li><%= link_to 'Scholarship', admin_articles_path %></li>
@@ -41,7 +43,15 @@
 						</ul>
 					</li>
 					
+					<li>
+						<%= link_to("Logout", destroy_user_session_path, :method => :delete) %>
+					</li>
+					
+					
+					
 				</ul>
+				
+				<% end %>
 	      
 		</div>
 	    </div>
