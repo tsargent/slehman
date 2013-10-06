@@ -1,5 +1,12 @@
 Stevelehman::Application.routes.draw do
   
+
+  devise_for :users, :controllers => { 
+    :sessions => "admin/sessions", 
+    :passwords => "admin/passwords",
+    :registrations => "admin/registrations"
+  }
+
   post "/emails/subscribe" => "emails#subscribe"
   post "/emails/message" => "emails#message"
 
@@ -60,6 +67,7 @@ Stevelehman::Application.routes.draw do
 
   # Sample resource route within a namespace:
     namespace :admin do
+      
       # Directs /admin/products/* to Admin::ProductsController
       # (app/controllers/admin/products_controller.rb)
       resources :articles

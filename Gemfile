@@ -17,6 +17,7 @@ gem 'gibbon',   '~> 1.0.0'
 gem 'pg'
 gem 'nested_form'
 gem 'postmark-rails', '~> 0.5.2'
+gem 'devise'
 
 group :development do
   gem 'sqlite3'
