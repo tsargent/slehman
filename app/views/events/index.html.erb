@@ -22,10 +22,10 @@
 					</div>
 					<div class="span5">
 						<% if params[:action] == 'index' %>
-							<h4><%= link_to "#{event.title} @ #{event.venue}, #{event.location}", event_path(event) %></h4>
+							<h4><%= link_to do_event_title(event), event_path(event) %></h4>
 							<p><%= event.body %></p>
 						<% else %>
-							<p><%= "#{event.title} @ #{event.venue}, #{event.location}" %><br><%= event.body %></p>
+							<p><%= do_event_title(event) %><br><%= event.body %></p>
 						<% end %>
 					</div>
 					

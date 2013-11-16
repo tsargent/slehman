@@ -15,6 +15,13 @@ module EventsHelper
       link_to "#{format_date @event.next.date}: #{@event.next.title} &#8594;".html_safe, event_url(@event.next), class: 'next'
     end
   end
+  
+  def do_event_title(event)
+    title = "#{event.title} @ "
+    venue = event.venue ? "#{event.venue}, " : ""
+    location = "#{event.location}"
+    title + venue + location
+  end
 
 
 end
