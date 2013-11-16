@@ -18,7 +18,7 @@ module EventsHelper
   
   def do_event_title(event)
     title = "#{event.title} @ "
-    venue = event.venue ? "#{event.venue}, " : ""
+    venue = !event.venue.blank? ? "#{event.venue}, " : ""
     location = "#{event.location}"
     title + venue + location
   end
