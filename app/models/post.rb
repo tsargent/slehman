@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
 
   scope :published, where(display: true)
   scope :recent, published.order('published_at DESC').limit(4)
+  default_scope published.order('published_at DESC')
 
   def og_image
     self.photo.image_url
@@ -22,7 +23,6 @@ class Post < ActiveRecord::Base
 
   def prev
     Post.published().where("published_at < ?", published_at).first()
-    
   end
 
 

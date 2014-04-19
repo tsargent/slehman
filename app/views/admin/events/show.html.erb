@@ -1,46 +1,12 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @event.title %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @event.location %>
-</p>
-
-<p>
-  <b>Venue:</b>
-  <%= @event.venue %>
-</p>
-
-<p>
-  <b>URL:</b>
-  <%= @event.url %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @event.body %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= format_date @event.date %>
-</p>
-
-<p>
-  <b>Time:</b>
-  <%= @event.time_string %>
-</p>
-
-
-<p>
-  <b>Address:</b>
-  <%= @event.address %>
-</p>
-
-
+<p><strong>id:</strong><br/><%= @event.id %></p><hr/>
+<p><strong>title:</strong><br/><%= @event.title %></p><hr/>
+<p><strong>location:</strong><br/><%= @event.location %></p><hr/>
+<p><strong>venue:</strong><br/><%= @event.venue %></p><hr/>
+<p><strong>url:</strong><br/><%= @event.url %></p><hr/>
+<p><strong>body:</strong><br/><%= @event.body %></p><hr/>
+<p><strong>date:</strong><br/><%= format_date @event.date %></p><hr/>
+<p><strong>time:</strong><br/><%= @event.time_string %></p><hr/>
+<p><strong>address:</strong><br/><%= @event.address %></p><hr/>
 <%= link_to 'Edit', edit_admin_event_path(@event) %> |
 <%= link_to 'Back', admin_events_path %>

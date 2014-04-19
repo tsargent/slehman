@@ -1,31 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
-
-<p>
-  <b>Photo:</b><br>
-  <%= @project.photo ? image_tag(@project.photo.image_url(:thumb)) : 'No Photo' %>
-</p>
-
-
-
-<p>
-	<b>Tracks:</b>
-	<ul class="unstyled">
-	<% @project.tracks.each do |track| %>
-	<li><%= link_to track.title, track.audio_url %></li>
-	<% end %>
-	</ul>
-</p>
-
-
+<p><strong>id:</strong><br/><%= @project.id %></p><hr/>
+<p><strong>name:</strong><br/><%= @project.name %></p><hr/>
+<p><strong>photo:</strong><br/><%= image_tag @project.photo.image_url(:medium) %></p><hr/>
+<p><strong>tracks:</strong><br/>
+<% @project.tracks.each do |track| %>
+	<%= link_to track.audio_url, track.audio_url %>
+<% end %>
+</p><hr/>
 <%= link_to 'Edit', edit_admin_project_path(@project) %> |
 <%= link_to 'Back', admin_projects_path %>

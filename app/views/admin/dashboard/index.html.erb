@@ -1,2 +1,57 @@
-<h1>Admin::Dashboard#index</h1>
-<p>Find me in app/views/admin/dashboard/index.html.erb</p>
+<h1>Dashboard</h1>
+
+<div class="row">
+	<div class="span2">
+		<h3><small>Posts</small></h3>
+		<% @posts.each do |post| %>
+			<hr/>
+			<a href="<%= admin_post_path post %>">
+				<small><%= format_date post.published_at %><br/>
+				<%= post.title %></small>
+			</a>
+		<% end %>
+	</div>
+
+
+	<div class="span2">
+		<h3><small>Events</small></h3>
+		<% @events.each do |event| %>
+			<hr/>
+			<a href="<%= admin_event_path event %>"><small><%= format_date event.date %><br/>
+			<%= event.title %><br/>
+			<%= event.venue %><br/>
+			<%= event.location %></small></a>
+		<% end %>
+	</div>
+
+
+	<div class="span2">
+		<h3><small>Albums</small></h3>
+		<% @albums.each do |album| %>
+			<hr/>
+			<a href="<%= admin_album_path album %>"><small><%= album.title %>
+			<br/><%= image_tag album.photo.image_url(:thumb) %></small></a>
+		<% end %>
+	</div>
+
+
+	<div class="span2">
+		<h3><small>Projects</small></h3>
+		<% @projects.each do |project| %>
+			<hr/>
+			<a href="<%= admin_project_path project %>"><small><%= project.name %><br/>
+			<%= image_tag project.photo.image_url(:thumb) %></small></a>
+		<% end %>
+	</div>
+
+
+
+	<div class="span2">
+		<h3><small>Press</small></h3>	
+		<% @quotes.each do |quote| %>
+			<hr/>
+			<a href="<%= admin_quote_path quote %>"><small><%= quote.body %></small></a>
+		<% end %>
+	</div>
+
+</div>

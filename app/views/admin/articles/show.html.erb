@@ -1,25 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @article.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @article.description %>
-</p>
-
-<p>
-  <b>Published:</b>
-  <%= @article.display %>
-</p>
-
-
-
-
-
-
-
+<p><strong>id:</strong><br/><%= @article.id %></p><hr/>
+<p><strong>title:</strong><br/><%= @article.title %></p><hr/>
+<p><strong>description:</strong><br/><%= @article.description %></p><hr/>
+<p><strong>display:</strong><br/><%= @article.display %></p><hr/>
 <%= link_to 'Edit', edit_admin_article_path(@article) %> |
 <%= link_to 'Back', admin_articles_path %>

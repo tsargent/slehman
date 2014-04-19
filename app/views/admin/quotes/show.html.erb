@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-
-
+<p><strong>id:</strong><br/><%= @quote.id %></p><hr/>
+<p><strong>source:</strong><br/><%= @quote.source %></p><hr/>
+<p><strong>body:</strong><br/><%= @quote.body %></p><hr/>
+<p><strong>url:</strong><br/><%= @quote.url %></p><hr/>
+<p><strong>display:</strong><br/><%= @quote.display %></p><hr/>
+<p><strong>featured:</strong><br/><%= @quote.featured %></p><hr/>
 <%= link_to 'Edit', edit_admin_quote_path(@quote) %> |
 <%= link_to 'Back', admin_quotes_path %>
