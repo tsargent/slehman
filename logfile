@@ -1,5 +1,104 @@
-LOG:  database system was shut down at 2013-09-02 14:29:37 EDT
-LOG:  database system is ready to accept connections
+LOG:  database system was shut down at 2013-11-16 12:16:29 EST
 LOG:  autovacuum launcher started
-ERROR:  column quotes.featerd does not exist at character 69
-STATEMENT:  SELECT "quotes".* FROM "quotes"  WHERE "quotes"."display" = 't' AND "quotes"."featerd" = 'f' ORDER BY position
+LOG:  database system is ready to accept connections
+LOG:  received SIGHUP, reloading configuration files
+FATAL:  database "pv_dev" does not exist
+FATAL:  database "pv_dev" does not exist
+FATAL:  database "pv_test" does not exist
+ERROR:  relation "stories" does not exist at character 315
+STATEMENT:              SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+	                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+	              FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	             WHERE a.attrelid = '"stories"'::regclass
+	               AND a.attnum > 0 AND NOT a.attisdropped
+	             ORDER BY a.attnum
+	
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+ERROR:  database "livi_development" is being accessed by other users
+DETAIL:  There are 2 other session(s) using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "livi_development"
+ERROR:  database "livi_development" already exists
+STATEMENT:  CREATE DATABASE "livi_development" ENCODING = 'unicode'
+ERROR:  type "hstore" does not exist at character 163
+STATEMENT:  CREATE TABLE "articles" ("id" serial primary key, "name" character varying(255), "content" text, "published_on" date, "tags" character varying(255), "properties" hstore, "created_at" timestamp, "updated_at" timestamp) 
+ERROR:  database "livi_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "livi_development"
+ERROR:  database "livi_development" already exists
+STATEMENT:  CREATE DATABASE "livi_development" ENCODING = 'unicode'
+ERROR:  type "hstore" does not exist at character 163
+STATEMENT:  CREATE TABLE "articles" ("id" serial primary key, "name" character varying(255), "content" text, "published_on" date, "tags" character varying(255), "properties" hstore, "created_at" timestamp, "updated_at" timestamp) 
+ERROR:  database "livi_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "livi_development"
+ERROR:  database "livi_development" already exists
+STATEMENT:  CREATE DATABASE "livi_development" ENCODING = 'unicode'
+ERROR:  database "livi_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "livi_development"
+ERROR:  database "livi_development" already exists
+STATEMENT:  CREATE DATABASE "livi_development" ENCODING = 'unicode'
+ERROR:  relation "products" already exists
+STATEMENT:  CREATE TABLE "products" ("id" serial primary key, "created_at" timestamp, "updated_at" timestamp) 
+ERROR:  relation "products" already exists
+STATEMENT:  CREATE TABLE "products" ("id" serial primary key, "created_at" timestamp, "updated_at" timestamp) 
+ERROR:  relation "products" already exists
+STATEMENT:  CREATE TABLE "products" ("id" serial primary key, "created_at" timestamp, "updated_at" timestamp) 
+ERROR:  database "livi_development" already exists
+STATEMENT:  CREATE DATABASE "livi_development" ENCODING = 'unicode'
+ERROR:  database "livi_test" already exists
+STATEMENT:  CREATE DATABASE "livi_test" ENCODING = 'unicode'
+ERROR:  database "livi_development" already exists
+STATEMENT:  CREATE DATABASE "livi_development" ENCODING = 'unicode'
+ERROR:  database "livi_test" already exists
+STATEMENT:  CREATE DATABASE "livi_test" ENCODING = 'unicode'
+ERROR:  database "livi_development" already exists
+STATEMENT:  CREATE DATABASE "livi_development" ENCODING = 'unicode'
+ERROR:  database "livi_test" already exists
+STATEMENT:  CREATE DATABASE "livi_test" ENCODING = 'unicode'
+ERROR:  syntax error at or near "*" at character 8
+STATEMENT:  delete * from schema_migrations 
+	;
+ERROR:  relation "videos" already exists
+STATEMENT:  CREATE TABLE "videos" ("id" serial primary key, "title" character varying(255), "position" integer, "created_at" timestamp, "updated_at" timestamp) 
+ERROR:  database "livi_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "livi_development"
+FATAL:  role "livi" does not exist
+ERROR:  database "livi_development" already exists
+STATEMENT:  CREATE DATABASE "livi_development" ENCODING = 'unicode'
+ERROR:  relation "videos" already exists
+STATEMENT:  CREATE TABLE "videos" ("id" serial primary key, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+ERROR:  relation "videos" already exists
+STATEMENT:  CREATE TABLE "videos" ("id" serial primary key, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+ERROR:  database "livi_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "livi_development"
+ERROR:  database "livi_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "livi_development"
+ERROR:  database "livi_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "livi_development"
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
