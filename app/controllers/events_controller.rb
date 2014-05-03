@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.upcoming
+    @events = Event.upcoming.order("date asc")
     @page_title = ' | Events'
     respond_to do |format|
       format.html # index.html.erb
