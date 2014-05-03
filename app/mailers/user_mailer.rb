@@ -1,6 +1,8 @@
 class UserMailer < ActionMailer::Base
 
-  default from: "tsargent@gmail.com"
+  include Devise::Mailers::Helpers
+
+  default from: "tyler@tylertylertyler.com"
   
   def message_email(email, message)
     @email = email
@@ -13,5 +15,12 @@ class UserMailer < ActionMailer::Base
       :from    => 'tyler@tylertylertyler.com',
       :tag     => 'contact-form'
     )
-    end
+  end
+
+  def reset_password_instructions(record, token, opts={})
+    devise_mail(record, :reset_password_instructions)
+  end
+
+
+
 end

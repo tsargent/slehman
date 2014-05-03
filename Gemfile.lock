@@ -199,9 +199,11 @@ DEPENDENCIES
   jquery-rails (~> 2.1.4)
   jquery-ui-rails
   kaminari
+  mail
   mini_magick
   nested_form
   pg
+  postmark
   postmark-rails (~> 0.5.2)
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
