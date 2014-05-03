@@ -2,7 +2,7 @@ class UserMailer < ActionMailer::Base
 
   include Devise::Mailers::Helpers
 
-  default from: "tyler@tylertylertyler.com"
+  default from: "tyler@tylertylerty.com"
   
   def message_email(email, message)
     @email = email
@@ -18,7 +18,8 @@ class UserMailer < ActionMailer::Base
   end
 
   def reset_password_instructions(record, token, opts={})
-    devise_mail(record, :reset_password_instructions)
+    @token = token
+    devise_mail(record, :reset_password_instructions, {from: 'tyler@tylertylertyler.com'})
   end
 
 
