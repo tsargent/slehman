@@ -64,7 +64,7 @@ Stevelehman::Application.configure do
   #   :enable_starttls_auto => true
   # }
   # ActionMailer::Base.delivery_method = :smtp
-  # config.action_mailer.default_url_options = { :host => 'stevelehman.com' }
+  config.action_mailer.default_url_options = { :host => 'www.stevelehman.com' }
 
   # Enable threaded mode
   # config.threadsafe!
