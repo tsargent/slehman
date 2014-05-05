@@ -18,7 +18,7 @@
 							<% for post in @posts %>
 							<div class="row home-item">
 								<div class="span1"><span class="date"><%= format_date(post.published_at) %></span></div>
-								<div class="span6"><%= link_to post.excerpt, post_path(post) %></div>
+								<div class="span6"><%= link_to post.title, post_path(post) %></div>
 							</div>
 							<% end %>
 							<a href="<%= posts_path %>" class="more read-more"><i class="icon-plus icon-white"></i></a>
