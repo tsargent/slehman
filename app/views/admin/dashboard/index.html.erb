@@ -30,7 +30,7 @@
 		<% @albums.each do |album| %>
 			<hr/>
 			<a href="<%= admin_album_path album %>"><small><%= album.title %>
-			<br/><%= image_tag album.photo.image_url(:thumb) %></small></a>
+			<br/><%= image_tag(album.photo.image_url(:thumb)) if album.photo %></small></a>
 		<% end %>
 	</div>
 
