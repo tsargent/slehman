@@ -27,7 +27,12 @@ class PagesController < ApplicationController
   end
 
   def music
-    @albums = Album.all
+    if(params[:q] == 'side')
+      @albums = Album.where(is_sideman: true)
+    else
+      @albums = Album.where(is_sideman: [false, nil])
+    end
+
     @page_title = ' | Music'
   end
   

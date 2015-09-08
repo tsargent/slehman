@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base
-  attr_accessible :date, :position, :title, :project, :photo_attributes, :tracks_attributes, :tracks, :track_attributes, :personnel, :year, :cta_url, :cta_text, :links_attributes
+  attr_accessible :date, :position, :title, :project, :photo_attributes, :tracks_attributes, :tracks, :track_attributes, :personnel, :year, :cta_url, :cta_text, :links_attributes, :is_sideman
 
   has_one :photo
   has_many :tracks

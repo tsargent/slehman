@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131005133428) do
+ActiveRecord::Schema.define(:version => 20150906232031) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20131005133428) do
     t.string   "cta_url"
     t.string   "cta_text"
     t.string   "project"
+    t.boolean  "is_sideman"
   end
 
   create_table "articles", :force => true do |t|

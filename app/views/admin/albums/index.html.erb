@@ -5,6 +5,7 @@
 	  <tr>
 	    <th>Sort</th>
 	    <th>ID</th>
+	    <th>Sideman?</th>
 	    <th>Photo</th>
 	    <th>Title</th>
 	    <th>Project</th>
@@ -21,6 +22,7 @@
 		
 			<td class="sort"><i class="icon-resize-vertical"></i></td>
 			<td><%= album.id %></td>
+			<td><%= 'yes' if album.is_sideman %></td>
 		    <td>
 				<% if album.photo %>
 					<%= image_tag album.photo.image_url(:thumb) %>

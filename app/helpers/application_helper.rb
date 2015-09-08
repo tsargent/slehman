@@ -74,4 +74,8 @@ module ApplicationHelper
     "#{params[:controller]} #{params[:action]}"
   end
   
+  def music_filter_class(q=false)
+    q
+  end
+
 end

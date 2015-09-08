@@ -1,5 +1,18 @@
 <section id="main">
 		<div id="player">
+
+
+		<% if(Album.where(is_sideman: true).count > 0) %>
+			<div class="row">
+				<div class="span4"></div>
+				<div class="span5">
+					<ul class="inline music_filter">
+						<li><%= link_to 'Recordings as a Leader', music_path,                        class: ('muted' if params[:q] == 'side' ) %></li>
+						<li><%= link_to 'Recordings as a Sideman/Co-Leader', music_path( q: 'side'), class: ('muted' if !params[:q]) %></li>
+					</ul>
+				</div>
+			</div>
+		<% end %>
 			<% @albums.each do |album| %>
 			
 			

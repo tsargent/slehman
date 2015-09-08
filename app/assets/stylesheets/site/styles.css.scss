@@ -1246,3 +1246,25 @@ body.pages.index {
     
 
 }
+
+.inline.music_filter {
+    background: white;
+    padding: 10px;
+    margin: 0;
+    margin-bottom: 20px;
+    @include box-shadow(rgba(0, 0, 0, 0.1) 0.5px 1px 1px 0px);
+
+    li {
+        display: inline-block;
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+        display: block;
+        padding: 5px;
+    }
+    .active {
+        // color: white;
+        // background: red;
+    }
+}
