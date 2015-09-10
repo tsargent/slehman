@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <p><strong>id:</strong><br/><%= @album.id %></p><hr/>
 <p><strong>title:</strong><br/><%= @album.title %></p><hr/>
-<p><strong>photo:</strong><br/><%= image_tag @album.photo.image_url(:medium) %></p><hr/>
+<p><strong>photo:</strong><br/><%= image_tag(@album.photo.image_url(:medium)) if @album.photo %></p><hr/>
 <p><strong>tracks:</strong><br/>
 <% @album.tracks.each do |track| %>
 	<%= link_to track.audio_url, track.audio_url %><br/>
