@@ -2,17 +2,17 @@
 <html>
 <head>
 	<title>Steve Lehman <%= @page_title %></title>
-	
+
 	<meta name="description" content="<%= og_description %>">
 	<meta property="og:site_name" content="Steve Lehman"/>
 	<meta property="og:image" content="<%= og_image %>"/>
 	<meta property="og:title" content="<%= og_title %>"/>
 	<meta property="og:url" content="<%= og_url %>"/>
 	<meta property="og:description" content="<%= og_description %>"/>
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<%= stylesheet_link_tag    "site/styles.css", :media => "all" %>
+	<%= stylesheet_link_tag "site/styles.css", media: "all" %>
 	<%= javascript_include_tag "site/application" %>
 
 <script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
@@ -26,58 +26,58 @@
 <body class="<%= body_class %>">
 	<div id="wrapper">
 		<header id="header">
-			<div class="navbar navbar-fixed-top">
+			<div class="navbar navbar-default navbar-fixed-top">
 				<div class="container">
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-							<%= link_to 'Steve Lehman', root_path, class: 'brand' %>
-							<div class="nav-collapse collapse">
-								<ul class="nav">
+					<div class="navbar-header">
+						<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<%= link_to 'Steve Lehman', root_path, class: 'navbar-brand' %>
+					</div>
+					<div id="navbar-main" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
 
-									<% if Page.find_by_name('bio') %>
-										<%= content_tag :li, class: active_path(bio_path) do -%>
-											<%= link_to "Bio", bio_path %>
-										<% end -%>
-									<% end %>
+							<% if Page.find_by_name('bio') %>
+								<%= content_tag :li, class: active_path(bio_path) do -%>
+									<%= link_to "Bio", bio_path -%>
+								<% end -%>
+							<% end %>
 
-									<%= content_tag :li, class: active_path(projects_path) do -%>
-										<%= link_to "Projects", projects_path %>
-									<% end -%>
+							<%= content_tag :li, class: active_path(projects_path) do -%>
+								<%= link_to "Projects", projects_path -%>
+							<% end -%>
 
-									<%= content_tag :li, class: active_path(events_path) do -%>
-										<%= link_to "Events", events_path %>
-									<% end -%>
+							<%= content_tag :li, class: active_path(events_path) do -%>
+								<%= link_to "Events", events_path -%>
+							<% end -%>
 
-									<%= content_tag :li, class: active_path(posts_path) do -%>
-										<%= link_to "News", posts_path %>
-									<% end -%>
-								
+							<%= content_tag :li, class: active_path(posts_path) do -%>
+								<%= link_to "News", posts_path -%>
+							<% end -%>
 
-									<%= content_tag :li, class: active_path(music_path) do -%>
-										<%= link_to "Music", music_path %>
-									<% end -%>
 
-									<%= content_tag :li, class: active_path(videos_path) do -%>
-										<%= link_to "Video", videos_path %>
-									<% end -%>
+							<%= content_tag :li, class: active_path(music_path) do -%>
+								<%= link_to "Music", music_path -%>
+							<% end -%>
 
-									<%= content_tag :li, class: active_path(press_path) do -%>
-										<%= link_to "Press", press_path %>
-									<% end -%>
+							<%= content_tag :li, class: active_path(videos_path) do -%>
+								<%= link_to "Video", videos_path -%>
+							<% end -%>
 
-									<%= content_tag :li, class: active_path(articles_path) do -%>
-										<%= link_to "Scholarship", articles_path %>
-									<% end -%>
+							<%= content_tag :li, class: active_path(press_path) do -%>
+								<%= link_to "Press", press_path -%>
+							<% end -%>
 
-									<%= content_tag :li, class: active_path(contact_path) do -%>
-										<%= link_to "Contact", contact_path %>
-									<% end -%>
+							<%= content_tag :li, class: active_path(articles_path) do -%>
+								<%= link_to "Scholarship", articles_path -%>
+							<% end -%>
 
-								</ul>
-								
+							<%= content_tag :li, class: active_path(contact_path) do -%>
+								<%= link_to "Contact", contact_path -%>
+							<% end -%>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -85,23 +85,23 @@
 		<% if !current_page?(:controller => 'pages', :action => 'index') %>
 		<div class="container">
 			<div class="row">
-		
-				<div class="span9">
+
+				<div class="col-md-9">
 					<div class="primary">
 					<%= yield %>
 					</div>
 				</div>
-				
-				
-				<div class="span3">
+
+
+				<div class="col-md-3">
 					<div class="secondary">
 						<%= render "shared/sidebar" %>
-						
+
 					</div>
 				</div>
 			</div>
 		</div>
-			
+
 		<% else %>
 
 				<%= yield %>
@@ -111,27 +111,27 @@
 
 		<div id="push"></div>
 	</div><!-- #wrapper -->
-	
+
 	<footer id="footer">
 		<div id="footer-content">
 			<div class="container">
 				<div class="row">
-					<div class="span3">&copy; Steve Lehman</div>
-					<div class="span3"></div>
-					<div class="span3"></div>
-					<div class="span3">site by <a href="http://www.linkedin.com/in/tylersargent" target="_blank">Tyler Sargent</a></div>
+					<div class="col-md-3">&copy; Steve Lehman</div>
+					<div class="col-md-3"></div>
+					<div class="col-md-3"></div>
+					<div class="col-md-3">site by <a href="http://www.linkedin.com/in/tylersargent" target="_blank">Tyler Sargent</a></div>
 				</div>
 			</div>
 		</div>
 	</footer>
-	
+
 
 	<% if current_page?(:controller => 'pages', :action => 'index') %>
 	<div id="home-image-container" class="">
-		<img id="home-image" src=""> 
+		<img id="home-image" src="">
 	</div>
 	<% end %>
-	
+
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

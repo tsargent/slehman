@@ -2,28 +2,28 @@
 
 		<% @videos.each do |video| %>
 		<article class="post videos">
-		
+
 		<div class="row">
-			
-			<div class="span5">
+
+			<div class="col-md-6">
 				<div class="video-container">
 					<%= video.embed.html_safe %>
 				</div>
 			</div>
-			<div class="span4">
+			<div class="col-md-6">
 				<div class="right-pad">
 					<h3><%= video.title.html_safe  %></h3>
 				</div>
 			</div>
 		</div>
-		
+
 		</article>
-		
+
 		<% end %>
 		<%= paginate @videos %>
-		
-				
-				
+
+
+
 
 </section>
 

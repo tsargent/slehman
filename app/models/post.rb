@@ -5,9 +5,9 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :photo
 
   validates_presence_of :title, :body
-  
+
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: [:slugged, :finders]
 
   scope :published, where(display: true)
   scope :recent, published.order('published_at DESC').limit(4)
@@ -29,7 +29,7 @@ class Post < ActiveRecord::Base
   # def next
   #   Event.where("date > ?", date).first()
   # end
-  # 
+  #
   # def prev
   #   Event.where("date < ?", date).order('date DESC').last
   # end

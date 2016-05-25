@@ -4,24 +4,24 @@
 
 		<% if(Album.where(is_sideman: true).count > 0) %>
 			<div class="row">
-				<div class="span4"></div>
-				<div class="span5">
+				<div class="col-md-5"></div>
+				<div class="col-md-7">
 					<ul class="inline music_filter">
-						<li><%= link_to 'Recordings as a Leader', music_path,                        class: ('muted' if params[:q] == 'side' ) %></li>
-						<li><%= link_to 'Recordings as a Sideman/Co-Leader', music_path( q: 'side'), class: ('muted' if !params[:q]) %></li>
+						<li><%= link_to 'Recordings as a Leader', music_path, class: ('text-muted' if params[:q] == 'side' ) %></li>
+						<li><%= link_to 'Recordings as a Sideman/Co-Leader', music_path( q: 'side'), class: ('text-muted' if !params[:q]) %></li>
 					</ul>
 				</div>
 			</div>
 		<% end %>
 			<% @albums.each do |album| %>
-			
-			
+
+
 			<div class="album row">
 
-				<div class="span4">
-					<img class="album-art" src="<%= album.photo.image_url if album.photo %>" />
+				<div class="col-md-5">
+					<img class="album-art img-responsive" src="<%= album.photo.image_url if album.photo %>" />
 				</div>
-				<div class="span5">
+				<div class="col-md-7">
 					<div class="right-pad">
 						<div class="top">
 							<h3><%= album.title %></h3>
@@ -62,18 +62,18 @@
 						</div>
 						<% end %>
 					</div>
-					
 
-					
-						
+
+
+
 				</div>
 
 			</div>
-				
+
 			<% end %>
 
 		</div>
-		
+
 
 </section>
 

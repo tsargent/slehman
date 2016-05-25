@@ -157,11 +157,6 @@ $zindexModalBackdrop:     1040 !default;
 $zindexModal:             1050 !default;
 
 
-// Sprite icons path
-// -------------------------
-$iconSpritePath:          image-path("glyphicons-halflings.png") !default;
-$iconWhiteSpritePath:     image-path("glyphicons-halflings-white.png") !default;
-
 
 // Input placeholder text color
 // -------------------------
@@ -307,3 +302,5 @@ $fluidGridGutterWidth1200:     percentage($gridGutterWidth1200/$gridRowWidth1200
 // 768px-979px
 $fluidGridColumnWidth768:      percentage($gridColumnWidth768/$gridRowWidth768) !default;
 $fluidGridGutterWidth768:      percentage($gridGutterWidth768/$gridRowWidth768) !default;
+
+$grid-float-breakpoint: 980px;

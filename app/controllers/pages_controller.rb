@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
 
   def index
-    
+
     @posts = Post.recent.order('published_at DESC')
     @events = Event.next_few
-    
+
   end
-  
+
   def contact
     @msg = "HELLO WORLD!!!!"
     @page_title = ' | Contact'
@@ -35,5 +35,11 @@ class PagesController < ApplicationController
 
     @page_title = ' | Music'
   end
-  
+
+  def selebeyone
+    @page_title = ' | Selebeyone'
+    page = Page.find_by_name('selebeyone')
+    @content = page.content
+  end
+
 end

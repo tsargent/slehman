@@ -1,9 +1,9 @@
 <div id="home">
 	<div class="container">
 		<div class="row">
-			<div class="span12">
+			<div class="col-md-12">
 				<div class="row">
-					<div class="span7">
+					<div class="col-md-7">
 						<div class="home-content">
 							<div id="quotes">
 								<p class="lead quote">
@@ -17,22 +17,22 @@
 							<h4>Latest News:</h4>
 							<% for post in @posts %>
 							<div class="row home-item">
-								<div class="span1"><span class="date"><%= format_date(post.published_at) %></span></div>
-								<div class="span6"><%= link_to post.title, post_path(post) %></div>
+								<div class="col-md-2"><span class="date"><%= format_date(post.published_at) %></span></div>
+								<div class="col-md-6"><%= link_to post.title, post_path(post) %></div>
 							</div>
 							<% end %>
-							<a href="<%= posts_path %>" class="more read-more"><i class="icon-plus icon-white"></i></a>
+							<a href="<%= posts_path %>" class="more read-more"><i class="glyphicon glyphicon-plus"></i></a>
 							<h4>Upcoming Events:</h4>
 							<% for event in @events %>
 							<div class="row home-item">
-								<div class="span1"><span class="date"><%= format_date(event.date) %></span></div>
-								<div class="span6"><%= link_to "#{event.title} in #{event.location}", event_path(event) %></div>
+								<div class="col-md-2"><span class="date"><%= format_date(event.date) %></span></div>
+								<div class="col-md-6"><%= link_to "#{event.title} in #{event.location}", event_path(event) %></div>
 							</div>
 							<% end %>
-							<a href="<%= events_path %>" class="more read-more"><i class="icon-plus icon-white"></i></a>
-							
+							<a href="<%= events_path %>" class="more read-more"><i class="glyphicon glyphicon-plus"></i></a>
+
 						</div>
-						
+
 					</div>
 				</div>
 			</div>

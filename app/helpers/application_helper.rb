@@ -1,37 +1,41 @@
 module ApplicationHelper
-  
+
   def active_path(path)
     # "active" if current_page?(path)
     "active" if request.url.include?(path)
   end
-  
-  
+
+
   def format_date(date)
     # date.to_formatted_s(:long)
     date.strftime("%m/%d/%y")
   end
-  
+
   def format_date_sidebar(date)
     # date.to_formatted_s(:long)
     date.strftime("%b %e")
   end
-  
-  
+
+
   def format_time(time)
-    time.to_time.strftime("%l:%M %p")  
+    time.to_time.strftime("%l:%M %p")
   end
-  
+
   def og_image
-    if @og_image 
-      URI.join(root_url, image_path(@og_image))
-    else
-      URI.join(root_url, image_path('steve_lehman.jpg'))
-    end
+    puts '1 --------'
+    # puts asset_path('steve_lehman.jpg')
+    puts "2 -------"
+    # if @og_image
+    #   URI.join(root_url, image_path(@og_image))
+    # else
+    #   URI.join(root_url, image_path('steve_lehman.jpg'))
+    # end
+    # URI.join(root_url, image_path('steve_lehman.jpg'))
   end
 
   def og_title
-    
-    if @og_title 
+
+    if @og_title
       @og_title
     else
       'Steve Lehman'
@@ -39,15 +43,15 @@ module ApplicationHelper
   end
 
   def og_url
-    if @og_url 
+    if @og_url
       @og_url
     else
       request.original_url
     end
   end
-  
+
   def og_description
-    if @og_description 
+    if @og_description
        @og_description
      else
        'Alto saxophonist and composer Steve Lehman'
@@ -64,16 +68,16 @@ module ApplicationHelper
     out = content.split("\n", 2)[0]
     out
   end
-  
+
   def bio_body(content)
     out = content.split("\n", 2)[1]
     simple_format(out)
   end
-  
+
   def body_class
     "#{params[:controller]} #{params[:action]}"
   end
-  
+
   def music_filter_class(q=false)
     q
   end

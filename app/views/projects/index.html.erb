@@ -2,11 +2,11 @@
 	<% @projects.each do |project| %>
 		<article class="post project">
 			<div class="row">
-				<div class="span3">
-					<%= image_tag project.photo.image_url(:medium) if project.photo %>
+				<div class="col-md-5">
+					<%= image_tag project.photo.image_url(:medium), class: 'img-responsive' if project.photo %>
 				</div>
-				<div class="span6">
-					
+				<div class="col-md-7">
+
 					<div class="right-pad">
 						<header>
 							<h3><%= project.name %><span class="header-hrule"></span></h3>
@@ -26,11 +26,11 @@
 								<% end %>
 							</div>
 						<% end %>
-						
+
 					</div>
-					
-					
-					
+
+
+
 				</div>
 			</div><!-- .row -->
 		</article>

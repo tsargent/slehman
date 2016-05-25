@@ -7,8 +7,8 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :photo
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
-  
+  friendly_id :name, use: [:slugged, :finders]
+
   default_scope order: 'position'
-  
+
 end

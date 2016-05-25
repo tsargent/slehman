@@ -36,4 +36,7 @@ Stevelehman::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = false
+
+  # config.assets.raise_production_errors = true
+
 end

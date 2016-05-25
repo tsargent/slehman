@@ -1,7 +1,7 @@
 <h1>Dashboard</h1>
 
 <div class="row">
-	<div class="span2">
+	<div class="col-md-2">
 		<h3><small>Posts</small></h3>
 		<% @posts.each do |post| %>
 			<hr/>
@@ -13,7 +13,7 @@
 	</div>
 
 
-	<div class="span2">
+	<div class="col-md-2">
 		<h3><small>Events</small></h3>
 		<% @events.each do |event| %>
 			<hr/>
@@ -25,7 +25,7 @@
 	</div>
 
 
-	<div class="span2">
+	<div class="col-md-2">
 		<h3><small>Albums</small></h3>
 		<% @albums.each do |album| %>
 			<hr/>
@@ -35,7 +35,7 @@
 	</div>
 
 
-	<div class="span2">
+	<div class="col-md-2">
 		<h3><small>Projects</small></h3>
 		<% @projects.each do |project| %>
 			<hr/>
@@ -46,8 +46,8 @@
 
 
 
-	<div class="span2">
-		<h3><small>Press</small></h3>	
+	<div class="col-md-2">
+		<h3><small>Press</small></h3>
 		<% @quotes.each do |quote| %>
 			<hr/>
 			<a href="<%= admin_quote_path quote %>"><small><%= quote.body %></small></a>

@@ -1,19 +1,13 @@
 <aside id="sidebar">
-	
+
 	<h4>Recent News</h4>
 		<% Post.recent.each do |post| %>
-			<div class="row">
-				<div class="span3">
-					<div class="sidebar-item clearfix">
-						
-						<div class="date">
-							<%= format_date_sidebar(post.published_at) %>
-						</div>
-						<div class="link">
-							<%= link_to post.title, post_path(post) %>
-						</div>
-						
-					</div>
+			<div class="sidebar-item clearfix">
+				<div class="date">
+					<%= format_date_sidebar(post.published_at) %>
+				</div>
+				<div class="link">
+					<%= link_to post.title, post_path(post) %>
 				</div>
 			</div>
 		<% end %>
@@ -21,15 +15,10 @@
 
 	<h4>Upcoming Events</h4>
 		<% Event.next_few.each do |event| %>
-			<div class="row">
-				<div class="span3">
-					<div class="sidebar-item clearfix">
-						<div class="date"><%= format_date_sidebar(event.date) %></div>
-						<div class="link"><%= link_to "#{event.title} in #{event.location}", event_path(event) %></div>
-						
-					</div>
+				<div class="sidebar-item clearfix">
+					<div class="date"><%= format_date_sidebar(event.date) %></div>
+					<div class="link"><%= link_to "#{event.title} in #{event.location}", event_path(event) %></div>
 				</div>
-			</div>
 		<% end %>
 
 	<div id="sidebar_bottom">
@@ -55,11 +44,11 @@
 				<!-- <li class="rss"><a href="#" target="_blank">rss</a></li> -->
 			</ul>
 		</div>
-		
+
 	</div>
 
 
-	
-	
-	
+
+
+
 </aside>

@@ -2,26 +2,19 @@
 <html>
 <head>
   <title>Stevelehman ADMIN</title>
-  <%= stylesheet_link_tag    "admin/styles", :media => "all" %>
+  <%= stylesheet_link_tag "admin/styles.css", media: "all" %>
   <%= javascript_include_tag "admin/admin" %>
   <%= csrf_meta_tags %>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/assets/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
-	<div class="navbar">
-	  <div class="navbar-inner">
+	<div class="navbar navbar-default">
 	    <div class="container">
-	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </a>
-	      <a class="brand" href="#">Steve Lehman</a>
-			<div class="nav-collapse">
+	      <a class="navbar-brand" href="#">Steve Lehman</a>
+			<div class="">
 				<% if user_signed_in? %>
-				
-				<ul class="nav">
+
+				<ul class="nav navbar-nav">
 					<li class="divider-vertical"></li>
 					<li><%= link_to 'Scholarship', admin_articles_path %></li>
 					<li><%= link_to 'Posts', admin_posts_path %></li>
@@ -31,8 +24,8 @@
 					<li><%= link_to 'Videos', admin_videos_path %></li>
 					<li><%= link_to 'Albums', admin_albums_path %></li>
 					<li class="divider-vertical"></li>
-					<li><%= link_to 'Bio', admin_pages_path %></li>
-					
+					<li><%= link_to 'Pages', admin_pages_path %></li>
+
 					<li class="divider-vertical"></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Files<b class="caret"></b></a>
@@ -42,23 +35,22 @@
 							<li><%= link_to 'Tracks', admin_tracks_path %></li>
 						</ul>
 					</li>
-					
+
 					<li>
 						<%= link_to("Logout", destroy_user_session_path, :method => :delete) %>
 					</li>
-					
-					
-					
+
+
+
 				</ul>
-				
+
 				<% end %>
-	      
-		</div>
+
 	    </div>
 	  </div>
 	</div>
-	
-	
+
+
 	<div class="container">
 		<% flash.each do |name, msg| %>
 		    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -66,12 +58,12 @@
 		    </div>
 		  <% end %>
 		<div class="row">
-			<div class="span12">
+			<div class="col-md-12">
 				<%= yield %>
 			</div>
-			
+
 		</div>
-		
+
 	</div>
 	<%= yield :body_js %>
 </body>

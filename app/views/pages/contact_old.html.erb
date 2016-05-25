@@ -2,8 +2,8 @@
 <section id="main">
 	<div class="row">
 
-		<div class="span5">
-			
+		<div class="col-md-5">
+
 			<h3>European Booking Inquiries for the Steve Lehman Trio</h3>
 			<p class="lead">Ralph Gluch<br />
 			Jazz Productions<br />
@@ -20,39 +20,39 @@
 			<a href="mailto:lalo@exb.it">lalo@exb.it</a><br />
 			Tel: +39 328-90-35-283
 			</p>
-			
+
 			<hr>
 			<h3>Score Requests</h3>
 			<p class="lead">A selection of Steve Lehman's scores are available for purchase through <a style="white-space:nowrap" href="http://www.pirecordings.com/scores/" target="_blank">Pi Recordings</a>.</p>
-			
-			
+
+
 		</div>
-		
-		<div class="span3">
+
+		<div class="col-md-3">
 
 			<h3>Send a Message</h3>
 			<form id="message_form" class="" action="/emails/message" method="post">
 
 				<fieldset>
 					<input name="email" id="message-email-address" type="text" placeholder="Your email address">
-					<textarea name="message" rows="8" cols="40" class="span4" placeholder="Send a message."></textarea>
+					<textarea name="message" rows="8" cols="40" class="col-md-4" placeholder="Send a message."></textarea>
 					<button type="submit" class="">Send</button>
-					
+
 					<% flash.each do |name, msg| -%>
 					      <%= content_tag :div, msg, class: name %>
 					<% end -%>
-					
+
 					<div class="instructions">
 						<p>Please enter your email address and an accompanying message if you wish to contact Steve Lehman directly regarding U.S. performances, private lessons, and all other inquiries not related to European bookings and score purchases.</p>
 						<p>If you wish to join Steve's mailing list, enter your email address in the text field to the right and click the &ldquo;submit&rdquo; button.</p>
 					</div>
 				</fieldset>
-				
+
 
 			</form>
 
 		</div>
-		
+
 
 	</div>
 

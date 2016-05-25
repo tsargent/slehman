@@ -1,40 +1,37 @@
 Stevelehman::Application.routes.draw do
-  
 
-  # devise_for :users, :controllers => { 
-  #   :sessions => "admin/sessions", 
+
+  # devise_for :users, :controllers => {
+  #   :sessions => "admin/sessions",
   #   :passwords => "admin/passwords",
   #   :registrations => "admin/registrations"
   # }
 
-  devise_for :users, 
-    :controllers => { 
-      :sessions => "admin/sessions", 
+  devise_for :users,
+    :controllers => {
+      :sessions => "admin/sessions",
       :passwords => "admin/passwords",
       :registrations => "admin/registrations"
-    }, :skip => [:registrations]                                          
+    }, :skip => [:registrations]
       as :user do
-        get 'users/edit' => 'admin/registrations#edit', :as => 'edit_user_registration'    
-        put 'users/:id' => 'admin/registrations#update', :as => 'user_registration'            
+        get 'users/edit' => 'admin/registrations#edit', :as => 'edit_user_registration'
+        put 'users/:id' => 'admin/registrations#update', :as => 'user_registration'
       end
-
-
-
 
   post "/emails/subscribe" => "emails#subscribe"
   post "/emails/message" => "emails#message"
 
-  %w[press contact music bio].each do |page|
+  %w[press contact music bio selebeyone].each do |page|
     get page, controller: 'pages', action: page
   end
-  
-  
+
+
   resources :videos
   # resources :posts
   resources :projects
-  match "events/past" => "events#past"
+  get "events/past" => "events#past"
   resources :events
-  
+
   resources :articles, :path => 'scholarship'
 
   resources :posts, :path => "news", :singular => "news"
@@ -52,7 +49,7 @@ Stevelehman::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  
+
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -81,7 +78,7 @@ Stevelehman::Application.routes.draw do
 
   # Sample resource route within a namespace:
     namespace :admin do
-      
+
       # Directs /admin/products/* to Admin::ProductsController
       # (app/controllers/admin/products_controller.rb)
       resources :articles
@@ -117,11 +114,11 @@ Stevelehman::Application.routes.draw do
       end
       root :to => 'dashboard#index'
       authenticated :user do
-        root :to => "dashboard#index"
+        # root :to => "dashboard#index"
       end
-      
-      
-      
+
+
+
     end
 
 
@@ -135,7 +132,7 @@ Stevelehman::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   #match ':controller(/:action(/:id))(.:format)'
-  match "emails/new"
-  
+  get "emails/new"
+
 
 end

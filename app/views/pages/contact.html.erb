@@ -1,7 +1,7 @@
 
 <section id="main">
 	<div class="row">
-		<div class="span5">
+		<div class="col-md-6">
 			<h3>European Booking Inquiries</h3>
 			<p class="lead">Lalo Lofoco<br />
 			Akamu Music Productions<br />
@@ -22,12 +22,12 @@
 			<h3>Score Requests</h3>
 			<p class="lead">A selection of Steve Lehman's scores are available for purchase through <a style="white-space:nowrap" href="http://www.pirecordings.com/scores/" target="_blank">Pi Recordings</a>.</p>
 		</div>
-		<div class="span3">
+		<div class="col-md-6">
 			<h3>Send a Message</h3>
 			<form id="message_form" class="" action="/emails/message" method="post">
 				<fieldset>
-					<input name="email" id="message-email-address" type="text" placeholder="Your email address">
-					<textarea name="message" rows="8" cols="40" class="span4" placeholder="Send a message."></textarea>
+					<input name="email" id="message-email-address" type="text" placeholder="Your email address" class='form-control'>
+					<textarea name="message" rows="8" cols="40" class="block form-control" placeholder="Send a message."></textarea>
 					<button type="submit" class="">Send</button>
 					<% flash.each do |name, msg| -%>
 					      <%= content_tag :div, msg, class: name %>

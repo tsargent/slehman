@@ -1,26 +1,26 @@
 <div id="page-image">
-	<img src="/assets/fieldwork.jpg"/>
+	<img src="/assets/fieldwork.jpg" class='img-responsive' />
 </div>
 
 <section id="main">
-	
-	
+
+
 	<div id="events_nav">
 		<%= link_to('Past Events', events_past_path) if Event.past.count > 0 %>
 		<%= " | " if (Event.past.count > 0 ) %>
-		
-		<%= link_to('Upcoming Events', events_path) if Event.past.count > 0 %> 
+
+		<%= link_to('Upcoming Events', events_path) if Event.past.count > 0 %>
 	</div>
 	<% if @events.count > 0 %>
 
 		<% @events.each do |event| %>
 			<article class="post event <%= 'past' if params[:action] == 'past' %>">
 				<div class="row">
-					<div class="span2">
+					<div class="col-md-2">
 						<div class="date"><%= format_date(event.date) %></div>
 						<div class="date"><%= event.time_string %></div>
 					</div>
-					<div class="span5">
+					<div class="col-md-8">
 						<% if params[:action] == 'index' %>
 							<h4><%= link_to do_event_title(event), event_path(event) %></h4>
 							<p><%= event.body %></p>
@@ -28,10 +28,10 @@
 							<p><%= do_event_title(event) %><br><%= event.body %></p>
 						<% end %>
 					</div>
-					
-					
+
+
 					<% if params[:action] == 'index' %>
-						<div class="span2">
+						<div class="col-md-2">
 							<div class="right-pad">
 							<%= link_to('Tickets', event.url, class: 'more event-more', target: '_blank') if event.url? %>
 							</div>

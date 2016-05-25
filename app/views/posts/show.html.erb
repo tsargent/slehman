@@ -1,13 +1,13 @@
 <section id="main">
 	<article class="post single-post">
-		
-		
-		
+
+
+
 		<header>
 
 			<% if @post.photo %>
 				<div class="row">
-					<div class="span5">
+					<div class="col-md-5">
 						<%= image_tag @post.photo.image_url(:medium), class: 'post-photo' %>
 					</div>
 				</div>
@@ -18,22 +18,22 @@
 			<h2><%= @post.title %></h2>
 
 		</header>
-		
-		
+
+
 		<%= simple_format(@post.body, {}, sanitize: false) %>
-		
+
 		<div class="sharing">
 			<span class='st_facebook_custom st_custom' displayText='Facebook' st_image="<%= og_image %>" st_url="<%= og_url %>" st_title="<%= og_title %>"><span class="icon"></span></span>
 			<span class='st_twitter_custom st_custom' displayText='Tweet' st_summary="<%= @post.excerpt %>" st_url="<%= og_url %>" st_via="thestevelehman"><span class="icon"></span></span>
 		</div>
-		
+
 
 		<nav class="prev-next">
 			<div class="row">
-				<div class="span4">
+				<div class="col-md-4">
 					<%= raw prev_link %>
 				</div>
-				<div class="span4 offset1">
+				<div class="col-md-4 offset1">
 					<%= raw next_link %>
 				</div>
 			</div>

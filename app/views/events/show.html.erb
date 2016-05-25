@@ -1,11 +1,11 @@
 
 
 <section id="main">
-	
+
 	<article class="post single-post event">
 
 			<div class="row">
-				<div class="span7">
+				<div class="col-md-7">
 					<header>
 						<h3><%= format_date(@event.date)%> <span><%= @event.location %></span> <%= @event.venue %></h3>
 						<h2><%= @event.title %></h2>
@@ -16,19 +16,19 @@
 			</div>
 
 			<div class="row">
-				<div class="span6">
+				<div class="col-md-6">
 					<%= simple_format @event.body, class: 'lead' %>
-					
+
 				</div>
 			</div>
-		
+
 
 		<nav class="prev-next">
 			<div class="row">
-				<div class="span4">
+				<div class="col-md-6">
 					<%= raw prev_event %>
 				</div>
-				<div class="span4 offset1">
+				<div class="col-md-6">
 					<%= raw next_event %>
 				</div>
 			</div>
