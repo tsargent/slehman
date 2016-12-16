@@ -5,6 +5,7 @@ gem 'rails', '4.0.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'puma'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'fog'
